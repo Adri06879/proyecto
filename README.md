@@ -1,2 +1,2 @@
 # Cafeteria
- pyoeccto 
+ proyeccto 
