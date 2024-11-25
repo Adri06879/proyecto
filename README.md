@@ -1,2 +1,2 @@
 # Cafeteria
- proyeccto 
+ proyecto 
