@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Formulario de Reserva de Productos - Cafetería</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #ff6347;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .nav a:hover {
+            background-color: #ff6347;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form fieldset {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        form legend {
+            font-weight: bold;
+            color: #ff6347;
+        }
+
+        form label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="date"],
+        form textarea,
+        form select,
+        form input[type="file"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        form input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        form input[type="submit"],
+        form input[type="reset"] {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        form input[type="submit"]:hover,
+        form input[type="reset"]:hover {
+            background-color: #e5533b;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cafetería Delicia</h1>
+        <p>¡El mejor café para comenzar tu día!</p>
+    </div> 
+
+    <div class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="menu.html">Menú</a>
+        <a href="sobre-nosotros.html">Sobre Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="reserva.html">Reserva</a>
+    </div>
+
+    <div class="content">
+        <h1>Formulario de Reserva de Productos en la Cafetería</h1>
+        <form action="procesar_reserva.php" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Información Personal</legend>
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" maxlength="100" /><br />
+
+                <label for="email">Correo electrónico:</label>
+                <input type="text" id="email" name="email" maxlength="100" /><br />
+
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" maxlength="15" /><br />
+
+                <label for="sexo-m">Sexo:</label><br />
+                <input type="radio" id="sexo-m" name="sexo" value="M" />
+                <label for="sexo-m">Masculino</label><br />
+                <input type="radio" id="sexo-f" name="sexo" value="F" />
+                <label for="sexo-f">Femenino</label><br />
+
+                <label for="imagen">Sube una imagen:</label>
+                <input type="file" id="imagen" name="imagen" /><br />
+            </fieldset>
+
+            <fieldset>
+                <legend>Detalles del Pedido</legend>
+                <label for="producto">Producto:</label>
+                <select id="producto" name="producto">
+                    <optgroup label="Repostería">
+                        <option value="croissant">Croissant</option>
+                        <option value="brownie-chocolate">Brownie de Chocolate</option>
+                        <option value="galletas-avena">Galletas de Avena</option>
+                        <option value="pastel-zanahoria">Pastel de Zanahoria</option>
+                        <option value="tarta-manzana">Tarta de Manzana</option>
+                    </optgroup>
+                    <optgroup label="Sándwiches">
+                        <option value="sandwich-jamon-queso">Sándwich de Jamón y Queso</option>
+                        <option value="sandwich-atun">Sándwich de Atún</option>
+                        <option value="sandwich-pavo">Sándwich de Pavo</option>
+                        <option value="sandwich-pollo">Sándwich de Pollo</option>
+                        <option value="sandwich-vegetariano">Sándwich Vegetariano</option>
+                    </optgroup>
+                    <optgroup label="Desayunos">
+                        <option value="tostada-aguacate">Tostada con Aguacate</option>
+                        <option value="desayuno-americano">Desayuno Americano</option>
+                        <option value="omelette">Omelette</option>
+                        <option value="pancakes-miel">Pancakes con Miel</option>
+                    </optgroup>
+                    <optgroup label="Bebidas">
+                        <option value="cafe-americano">Café Americano</option>
+                        <option value="te-verde">Té Verde</option>
+                        <option value="jugo-natural">Jugo Natural</option>
+                        <option value="cappuccino">Cappuccino</option>
+                        <option value="cocacola">Cocacola</option>
+                    </optgroup>
+                </select><br />
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="text" id="cantidad" name="cantidad" maxlength="3" /><br />
+
+                <label for="fecha">Fecha de recogida (formato: YYYY-MM-DD):</label>
+                <input type="text" id="fecha" name="fecha" /><br />
+
+                <label for="hora">Hora de recogida (hh:mm):</label>
+                <input type="text" id="hora" name="hora" maxlength="5" /><br />
+            </fieldset>
+
+            <fieldset>
+                <legend>Comentarios Adicionales</legend>
+                <label for="comentarios">Comentarios:</label>
+                <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea><br />
+            </fieldset>
+
+            <div>
+                <input type="submit" value="Reservar" />
+                <input type="reset" value="Restablecer" />
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>&#169; 2024 Cafetería Delicia. Todos los derechos reservados.</p>
+    </div>
+</body>
+</html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Formulario de Reserva de Productos - Cafetería</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #ff6347;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .nav a:hover {
+            background-color: #ff6347;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form fieldset {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        form legend {
+            font-weight: bold;
+            color: #ff6347;
+        }
+
+        form label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="date"],
+        form textarea,
+        form select,
+        form input[type="file"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        form input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        form input[type="submit"],
+        form input[type="reset"] {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        form input[type="submit"]:hover,
+        form input[type="reset"]:hover {
+            background-color: #e5533b;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cafetería Delicia</h1>
+        <p>¡El mejor café para comenzar tu día!</p>
+    </div> 
+
+    <div class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="menu.html">Menú</a>
+        <a href="sobre-nosotros.html">Sobre Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="reserva.html">Reserva</a>
+    </div>
+
+    <div class="content">
+        <h1>Formulario de Reserva de Productos en la Cafetería</h1>
+        <form action="procesar_reserva.php" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Información Personal</legend>
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" maxlength="100" /><br />
+
+                <label for="email">Correo electrónico:</label>
+                <input type="text" id="email" name="email" maxlength="100" /><br />
+
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" maxlength="15" /><br />
+
+                <label for="sexo-m">Sexo:</label><br />
+                <input type="radio" id="sexo-m" name="sexo" value="M" />
+                <label for="sexo-m">Masculino</label><br />
+                <input type="radio" id="sexo-f" name="sexo" value="F" />
+                <label for="sexo-f">Femenino</label><br />
+
+                <label for="imagen">Sube una imagen:</label>
+                <input type="file" id="imagen" name="imagen" /><br />
+            </fieldset>
+
+            <fieldset>
+                <legend>Detalles del Pedido</legend>
+                <label for="producto">Producto:</label>
+                <select id="producto" name="producto">
+                    <optgroup label="Repostería">
+                        <option value="croissant">Croissant</option>
+                        <option value="brownie-chocolate">Brownie de Chocolate</option>
+                        <option value="galletas-avena">Galletas de Avena</option>
+                        <option value="pastel-zanahoria">Pastel de Zanahoria</option>
+                        <option value="tarta-manzana">Tarta de Manzana</option>
+                    </optgroup>
+                    <optgroup label="Sándwiches">
+                        <option value="sandwich-jamon-queso">Sándwich de Jamón y Queso</option>
+                        <option value="sandwich-atun">Sándwich de Atún</option>
+                        <option value="sandwich-pavo">Sándwich de Pavo</option>
+                        <option value="sandwich-pollo">Sándwich de Pollo</option>
+                        <option value="sandwich-vegetariano">Sándwich Vegetariano</option>
+                    </optgroup>
+                    <optgroup label="Desayunos">
+                        <option value="tostada-aguacate">Tostada con Aguacate</option>
+                        <option value="desayuno-americano">Desayuno Americano</option>
+                        <option value="omelette">Omelette</option>
+                        <option value="pancakes-miel">Pancakes con Miel</option>
+                    </optgroup>
+                    <optgroup label="Bebidas">
+                        <option value="cafe-americano">Café Americano</option>
+                        <option value="te-verde">Té Verde</option>
+                        <option value="jugo-natural">Jugo Natural</option>
+                        <option value="cappuccino">Cappuccino</option>
+                        <option value="cocacola">Cocacola</option>
+                    </optgroup>
+                </select><br />
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="text" id="cantidad" name="cantidad" maxlength="3" /><br />
+
+                <label for="fecha">Fecha de recogida (formato: YYYY-MM-DD):</label>
+                <input type="text" id="fecha" name="fecha" /><br />
+
+                <label for="hora">Hora de recogida (hh:mm):</label>
+                <input type="text" id="hora" name="hora" maxlength="5" /><br />
+            </fieldset>
+
+            <fieldset>
+                <legend>Comentarios Adicionales</legend>
+                <label for="comentarios">Comentarios:</label>
+                <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea><br />
+            </fieldset>
+
+            <div>
+                <input type="submit" value="Reservar" />
+                <input type="reset" value="Restablecer" />
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>&#169; 2024 Cafetería Delicia. Todos los derechos reservados.</p>
+    </div>
+</body>
+</html>
