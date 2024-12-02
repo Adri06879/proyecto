@@ -2,6 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menú - Cafetería Delicia</title>
     <style type="text/css">
         body {
@@ -18,16 +20,13 @@
         }
         .nav {
             background-color: #333;
-            text-align: center;
+            display: flex;
+            justify-content: center; /* Centra los elementos horizontalmente */
             padding: 10px;
-            overflow: hidden;
         }
         .nav a {
-            float: left;
-            display: block;
             color: white;
-            text-align: center;
-            padding: 14px 16px;
+            padding: 14px 20px;
             text-decoration: none;
             font-size: 18px;
             transition: background-color 0.3s;
@@ -68,6 +67,19 @@
         ul li a:hover {
             background-color: #40cb09;
         }
+        .category-info {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .category-info h3 {
+            color: #0cb74e;
+            margin-top: 20px;
+        }
+        .category-info p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
         .footer {
             background-color: #0fc50c;
             color: white;
@@ -100,12 +112,23 @@
 
     <div class="content">
         <h2>Menú</h2>
+        <p>Explora nuestra variedad de opciones cuidadosamente seleccionadas para satisfacer todos los gustos:</p>
         <ul>
             <li><a href="bebidas.html">Bebidas</a></li>
             <li><a href="reposteria.html">Repostería</a></li>
             <li><a href="desayunos.html">Desayunos</a></li>
             <li><a href="sandwiches.html">Sándwiches</a></li>
         </ul>
+        <div class="category-info">
+            <h3>Bebidas</h3>
+            <p>Desde un clásico café hasta deliciosos batidos de frutas frescas.</p>
+            <h3>Repostería</h3>
+            <p>Prueba nuestra amplia selección de pasteles, tartas y galletas.</p>
+            <h3>Desayunos</h3>
+            <p>Empieza tu día con nuestros desayunos saludables y energéticos.</p>
+            <h3>Sándwiches</h3>
+            <p>Disfruta de nuestros sándwiches recién preparados con los mejores ingredientes.</p>
+        </div>
     </div>
 
     <div class="footer">
