@@ -20,43 +20,26 @@
         }
         .nav {
             background-color: #333;
-    overflow: hidden;
-    display: flex;
-    justify-content: center; 
-    align-items: center;    
-    padding: 10px;
-}
-
-.nav a {
-    color: white;
-    margin: 0 15px; 
-    text-decoration: none;
-    font-size: 18px;
-    transition: background-color 0.3s;
-}
+            overflow: hidden;
+            display: flex;
+            justify-content: center; 
+            align-items: center;    
+            padding: 10px;
+        }
+        .nav a {
+            color: white;
+            margin: 0 15px; 
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
         .nav a:hover {
             text-decoration: underline;
         }
-        .nav {
-            background-color: #333;
-            overflow: hidden;
-        }
-
-        .nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-
         .content {
             padding: 20px;
             text-align: center;
         }
-
         .footer {
             background-color: #0fc50c;
             color: white;
@@ -66,6 +49,18 @@
             font-size: 10px; 
             padding: 2px 0; 
             line-height: 1.2; 
+        }
+        .rss-link {
+            text-align: center;
+            margin: 10px 0;
+        }
+        .rss-link a {
+            color: #0c6d1d;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .rss-link a:hover {
+            color: #084d13;
         }
     </style>
 </head>
@@ -89,9 +84,7 @@
         <p>Visítanos en nuestra sucursal o haz tu pedido en línea.</p>
 
         <h3>Nuestra Ubicación</h3>
-
         <img src="img_espana.jpg" alt="Mapa de España" usemap="#zonas" />
-        
         <map name="zonas" id="zonas">
             <area shape="rect" coords="296,220,365,263" href="https://es.wikipedia.org/wiki/Ciudad_Real" title="ir a Ciudad Real" alt="Ciudad Real" />
             <area shape="poly" coords="401,226,416,199,440,214,446,244,426,251" href="https://es.wikipedia.org/wiki/Valencia" title="ir a Valencia" alt="Valencia" />
@@ -107,6 +100,10 @@
             <a href="https://validator.w3.org/markup/check?uri=referer"><img
               src="https://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="20" width="50" /></a>
         </p>
+    </div>
+
+    <div class="rss-link">
+        <a href="rss/rss.xml">Suscríbete a nuestro RSS</a>
     </div>
 </body>
 </html>

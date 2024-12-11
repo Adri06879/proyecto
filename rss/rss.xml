@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+    <title>Novedades sobre Cafeterías</title>
+    <link>http://sergiolara.esy.es/</link>
+    <description>Últimas noticias y novedades relacionadas con cafeterías</description>
+    <item>
+        <title>Las cafeterías más innovadoras en España</title>
+        <link>http://sergiolara.esy.es/noticias/cafeterias-innovadoras.html</link>
+        <description>Descubre las cafeterías que están revolucionando el mercado con nuevas ideas y conceptos únicos.</description>
+    </item>
+    <item>
+        <title>Tendencias en menús de cafeterías para 2024</title>
+        <link>http://sergiolara.esy.es/noticias/tendencias-menu-cafeterias.html</link>
+        <description>Un vistazo a las tendencias más populares en los menús de cafeterías para este año.</description>
+    </item>
+    <item>
+        <title>Beneficios de tomar café en cafeterías locales</title>
+        <link>http://sergiolara.esy.es/noticias/beneficios-cafeterias-locales.html</link>
+        <description>Exploramos por qué elegir una cafetería local puede ser una experiencia más enriquecedora.</description>
+    </item>
+    <item>
+        <title>Las cafeterías con mejor ambiente para trabajar</title>
+        <link>http://sergiolara.esy.es/noticias/cafeterias-para-trabajar.html</link>
+        <description>Conoce las mejores cafeterías que ofrecen un ambiente ideal para freelancers y estudiantes.</description>
+    </item>
+</channel>
+</rss>
