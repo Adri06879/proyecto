@@ -1,37 +1,25 @@
 <rss version="2.0">
     <channel>
         <title>Noticias sobre Cafeterías y Café</title>
-        <link>https://www.dailycoffeenews.com/</link>
+        <link>https://dailycoffeenews.com/</link>
         <description>Últimas noticias sobre el mundo del café y las cafeterías</description>
         
         <item>
-            <title>Las nuevas tendencias en cafeterías para 2024</title>
-            <link>https://www.dailycoffeenews.com/2024-coffee-shop-trends</link>
-            <description>Explora las tendencias más relevantes para las cafeterías en el próximo año.</description>
+                        <title>La evolución de los menús de café</title>
+            <link>https://www.baristamagazine.com/</link>
+            <description>Las cafeterías están mejorando y diversificando sus menús para adaptarse a nuevos gustos.</description>
         </item>
         
         <item>
-            <title>Innovación en el menú de las cafeterías</title>
-            <link>https://www.dailycoffeenews.com/coffee-shop-menu-innovations</link>
-            <description>Las cafeterías están revolucionando sus menús con nuevas opciones de café y repostería.</description>
+            <title>El auge de las cafeterías ecológicas</title>
+            <link>https://sustainablebrands.com/</link>
+            <description>Conoce cómo las cafeterías están adoptando prácticas ecológicas y sostenibles.</description>
         </item>
         
         <item>
-            <title>El auge de las cafeterías sostenibles</title>
-            <link>https://www.fcp.cafe/sustainable-coffee-shops</link>
-            <description>Conoce cómo las cafeterías están adoptando prácticas sostenibles para mejorar el impacto ambiental.</description>
-        </item>
-        
-        <item>
-            <title>Las mejores cafeterías para freelancers</title>
-            <link>https://www.foodbusinessnews.net/best-coffee-shops-for-freelancers</link>
-            <description>¿Buscas un lugar para trabajar? Aquí están las mejores cafeterías para freelancers.</description>
-        </item>
-        
-        <item>
-            <title>Las últimas tendencias en cafeterías rápidas</title>
-            <link>https://www.qsrmagazine.com/coffee-shop-trends</link>
-            <description>Conoce las tendencias en cafeterías de servicio rápido y cómo afectan el mercado.</description>
+           <title>Las nuevas tendencias en cafeterías para 2024</title>
+        <link>https://www.sprudge.com/2024-coffee-shop-trends.html</link>
+        <description>Explora las tendencias más relevantes para las cafeterías en el próximo año.</description>
         </item>
         
     </channel>
