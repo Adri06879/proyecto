@@ -177,6 +177,95 @@
             }
         }
     </style>
+    <script>
+        function validarNombre() {
+            var nombre = document.getElementById("name").value;
+            var error = document.getElementById("errorNombre");
+            if (!nombre.trim()) {
+                error.style.display = 'inline';
+                error.innerHTML = "Por favor, ingresa tu nombre completo.";
+                error.style.color = "red";
+            } else if (/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{2,}$/.test(nombre)) {
+                error.style.display = 'none';
+            } else {
+                error.style.display = 'inline';
+                error.innerHTML = "El nombre solo puede contener letras y espacios.";
+                error.style.color = "red";
+            }
+        }
+
+        function validarCorreo() {
+            var correo = document.getElementById("email").value;
+            var error = document.getElementById("errorCorreo");
+            if (!correo.trim()) {
+                error.style.display = 'inline';
+                error.innerHTML = "Por favor, ingresa tu correo electrónico.";
+                error.style.color = "red";
+            } else if (/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(correo)) {
+                error.style.display = 'none';
+            } else {
+                error.style.display = 'inline';
+                error.innerHTML = "Introduce un correo electrónico válido.";
+                error.style.color = "red";
+            }
+        }
+
+        function validarTelefono() {
+            var telefono = document.getElementById("phone").value;
+            var error = document.getElementById("errorTelefono");
+            if (!telefono.trim()) {
+                error.style.display = 'inline';
+                error.innerHTML = "Por favor, ingresa tu número de teléfono.";
+                error.style.color = "red";
+            } else if (/^\+?[0-9]{1,3} ?[0-9]{3,} ?[0-9]{2,}$/.test(telefono)) {
+                error.style.display = 'none';
+            } else {
+                error.style.display = 'inline';
+                error.innerHTML = "Introduce un número de teléfono válido.";
+                error.style.color = "red";
+            }
+        }
+
+        function validarCodigoPostal() {
+            var codigoPostal = document.getElementById("postalCode").value;
+            var error = document.getElementById("errorPostalCode");
+            if (!codigoPostal.trim()) {
+                error.style.display = 'inline';
+                error.innerHTML = "Por favor, ingresa tu código postal.";
+                error.style.color = "red";
+            } else if (/^\d{5}$/.test(codigoPostal)) {
+                error.style.display = 'none';
+            } else {
+                error.style.display = 'inline';
+                error.innerHTML = "Introduce un código postal válido (5 dígitos).";
+                error.style.color = "red";
+            }
+        }
+
+        function validarDNI() {
+            var dni = document.getElementById("dni").value;
+            var error = document.getElementById("errorDNI");
+            if (!dni.trim()) {
+                error.style.display = 'inline';
+                error.innerHTML = "Por favor, ingresa tu DNI.";
+                error.style.color = "red";
+            } else if (/^\d{8}[A-Za-z]$/.test(dni)) {
+                error.style.display = 'none';
+            } else {
+                error.style.display = 'inline';
+                error.innerHTML = "Introduce un DNI válido (8 dígitos seguido de una letra).";
+                error.style.color = "red";
+            }
+        }
+
+        function validarFormulario() {
+            validarNombre();
+            validarCorreo();
+            validarTelefono();
+            validarCodigoPostal();
+            validarDNI();
+        }
+    </script>
 </head>
 <body>
     <div id="header">
@@ -199,17 +288,28 @@
         <p><strong>Teléfono:</strong> +34 675 08 68 19</p>
         <p><strong>Correo electrónico:</strong> <a href="mailto:cafeteriaydelicias@gmail.com">cafeteriaydelicias@gmail.com</a></p>
 
-        <form action="submit-form.php" method="post">
+        <form action="submit-form.php" method="post" onsubmit="event.preventDefault(); validarFormulario();">
             <h3>Formulario de Contacto</h3>
 
             <label for="name">Nombre Completo:</label>
             <input type="text" id="name" name="name" required placeholder="Introduce tu nombre completo" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]{2,}" title="El nombre solo puede contener letras y espacios.">
+            <span id="errorNombre" style="display: none;"></span>
 
             <label for="email">Correo Electrónico:</label>
             <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" title="Introduce un correo electrónico válido.">
+            <span id="errorCorreo" style="display: none;"></span>
 
             <label for="phone">Teléfono:</label>
             <input type="tel" id="phone" name="phone" required placeholder="+34 600 123 456" pattern="\+?[0-9]{1,3} ?[0-9]{3,} ?[0-9]{2,}" title="Introduce un número de teléfono válido.">
+            <span id="errorTelefono" style="display: none;"></span>
+
+            <label for="postalCode">Código Postal:</label>
+            <input type="text" id="postalCode" name="postalCode" required placeholder="Código Postal" pattern="^\d{5}$" title="Introduce un código postal válido (5 dígitos).">
+            <span id="errorPostalCode" style="display: none;"></span>
+
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" required placeholder="DNI (8 dígitos + letra)" pattern="^\d{8}[A-Za-z]$" title="Introduce un DNI válido (8 dígitos seguido de una letra).">
+            <span id="errorDNI" style="display: none;"></span>
 
             <label for="date">Fecha de Visita:</label>
             <input type="date" id="date" name="date" required>
