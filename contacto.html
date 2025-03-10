@@ -217,11 +217,11 @@
                 error.style.display = 'inline';
                 error.innerHTML = "Por favor, ingresa tu número de teléfono.";
                 error.style.color = "red";
-            } else if (/^\+?[0-9]{1,3} ?[0-9]{3,} ?[0-9]{2,}$/.test(telefono)) {
+            } else if (/^\d{9}$/.test(telefono)) {
                 error.style.display = 'none';
             } else {
                 error.style.display = 'inline';
-                error.innerHTML = "Introduce un número de teléfono válido.";
+                error.innerHTML = "Introduce un número de teléfono válido (solo números, 9 dígitos).";
                 error.style.color = "red";
             }
         }
@@ -308,9 +308,9 @@
             <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" title="Introduce un correo electrónico válido.">
             <span id="errorCorreo" style="display: none;"></span>
 
-           <label for="phone">Teléfono:</label>
-<input type="tel" id="phone" name="phone" required placeholder="+34 600 123 456" pattern="^[0-9]{9}$" title="Introduce un número de teléfono válido (solo números, 9 dígitos)">
-<span id="errorTelefono" style="display: none;"></span>
+            <label for="phone">Teléfono:</label>
+            <input type="tel" id="phone" name="phone" required placeholder="600 123 456" maxlength="9" oninput="validarTelefono()" pattern="^\d{9}$" title="Introduce un número de teléfono válido (solo números, 9 dígitos)">
+            <span id="errorTelefono" style="display: none;"></span>
 
             <label for="postalCode">Código Postal:</label>
             <input type="text" id="postalCode" name="postalCode" required placeholder="Código Postal" pattern="^\d{5}$" title="Introduce un código postal válido (5 dígitos).">
@@ -320,45 +320,20 @@
             <input type="text" id="dni" name="dni" required placeholder="DNI (8 dígitos)" maxlength="8" pattern="^\d{8}$" title="Introduce un DNI válido (8 dígitos).">
             <span id="errorDNI" style="display: none;"></span>
 
-            <label for="date">Fecha de Visita:</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="time">Hora Preferida:</label>
-            <input type="time" id="time" name="time" required>
-
-            <label for="guests">Número de Invitados:</label>
-            <input type="number" id="guests" name="guests" min="1" max="20" required placeholder="Introduce el número de invitados">
-
-            <label for="file">Adjuntar Archivo:</label>
-            <input type="file" id="file" name="file" accept=".jpg,.jpeg,.png,.pdf">
-
-            <label for="service">Servicio:</label>
-            <select id="service" name="service" required>
-                <option value="">Selecciona una opción</option>
-                <option value="consulta">Consulta General</option>
-                <option value="reserva">Reserva de Mesa</option>
-                <option value="evento">Organización de Evento</option>
-            </select>
-
-            <fieldset>
-                <legend>Preferencias de Contacto</legend>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" name="contact[]" value="telefono"> Teléfono</label>
-                    <label><input type="checkbox" name="contact[]" value="email"> Email</label>
-                    <label><input type="checkbox" name="contact[]" value="whatsapp"> WhatsApp</label>
-                </div>
+            <fieldset class="checkbox-group">
+                <legend>Preferencias de Contacto:</legend>
+                <label><input type="checkbox" name="contact[]" value="email"> Correo electrónico</label>
+                <label><input type="checkbox" name="contact[]" value="telefono"> Teléfono</label>
+                <label><input type="checkbox" name="contact[]" value="sms"> SMS</label>
             </fieldset>
 
-            <label for="message">Mensaje:</label>
-            <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
-
-            <input type="submit" value="Enviar Mensaje">
+            <input type="submit" value="Enviar" />
         </form>
     </div>
 
     <div id="footer">
-        <p>&copy; 2025 Cafetería Delicia - Todos los derechos reservados</p>
+        <p>© 2025 Cafetería Delicia - Todos los derechos reservados</p>
+        <p><a href="mailto:cafeteriaydelicias@gmail.com"><img src="imagenes/email-icon.png" alt="Email" /> Contacto</a></p>
     </div>
 </body>
 </html>
-
