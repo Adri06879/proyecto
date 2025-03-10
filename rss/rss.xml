@@ -1,8 +1,10 @@
 <rss version="2.0">
     <channel>
+         <item>
         <title>Noticias sobre Cafeterías y Café</title>
         <link>https://dailycoffeenews.com/</link>
         <description>Últimas noticias sobre el mundo del café y las cafeterías</description>
+         </item>
         
         <item>
                         <title>La evolución de los menús de café</title>
