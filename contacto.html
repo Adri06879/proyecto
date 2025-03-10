@@ -227,20 +227,22 @@
         }
 
         function validarCodigoPostal() {
-            var codigoPostal = document.getElementById("postalCode").value;
-            var error = document.getElementById("errorPostalCode");
-            if (!codigoPostal.trim()) {
-                error.style.display = 'inline';
-                error.innerHTML = "Por favor, ingresa tu código postal.";
-                error.style.color = "red";
-            } else if (/^\d{5}$/.test(codigoPostal)) {
-                error.style.display = 'none';
-            } else {
-                error.style.display = 'inline';
-                error.innerHTML = "Introduce un código postal válido (5 dígitos).";
-                error.style.color = "red";
-            }
+        var codigoPostal = document.getElementById("postalCode").value;
+        var error = document.getElementById("errorPostalCode");
+
+        
+        if (!codigoPostal.trim()) {
+            error.style.display = 'inline';
+            error.innerHTML = "Por favor, ingresa tu código postal.";
+            error.style.color = "red";
+        } else if (/^\d{5}$/.test(codigoPostal)) {
+            error.style.display = 'none';
+        } else {
+            error.style.display = 'inline';
+            error.innerHTML = "Introduce un código postal válido (5 dígitos).";
+            error.style.color = "red";
         }
+    }
 
         function validarDNI() {
             var dni = document.getElementById("dni").value;
