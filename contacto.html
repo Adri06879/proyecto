@@ -1,357 +1,536 @@
-<!DOCTYPE html>
-<html lang="es">
+!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Cafetería Delicia</title>
-    <link rel="icon" href="imagenes/favicon.png" type="image/png" />
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7fc;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
+    <title>Perifericos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="img/raton_icon.png" type="image/ico" />
+    <link id="css_archivo" rel="stylesheet" href="css/estilo.css" />
 
-        #header {
-            background-color: #0cb74e;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 36px;
-            letter-spacing: 2px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        #nav {
-            background-color: #333;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-        }
-
-        #nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        #nav a:hover {
-            text-decoration: underline;
-        }
-
-        .content {
-            padding: 50px;
-            text-align: center;
-        }
-
-        .content h2 {
-            color: #52d2d6;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .content p {
-            font-size: 18px;
-        }
-
-        form {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        form h3 {
-            font-size: 26px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        label {
-            font-size: 16px;
-            color: #333;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            border-color: #0cb74e;
-            box-shadow: 0 0 8px rgba(9, 203, 16, 0.906);
-        }
-
-        input[type="submit"] {
-            background-color: #0cb74e;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0cb74e;
-        }
-
-        fieldset {
-            border: none;
-            margin: 15px 0;
-        }
-
-        legend {
-            font-weight: bold;
-            color: #0cb74e;
-            font-size: 18px;
-        }
-
-        .checkbox-group label {
-            display: inline-block;
-            margin-right: 20px;
-            font-size: 16px;
-            color: #333;
-        }
-
-        .checkbox-group input {
-            width: auto;
-        }
-
-        textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        #footer {
-            background-color: #0cb74e;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-            bottom: 0;
-            margin-top: 50px;
-            font-size: 12px;
-        }
-
-        #footer p {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        #footer a {
-            text-decoration: none;
-            color: white;
-        }
-
-        #footer a img {
-            margin-top: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .content {
-                padding: 30px;
-            }
-
-            form {
-                width: 90%;
-            }
-
-            input[type="submit"] {
-                width: 100%;
-            }
-        }
-    </style>
     <script>
-        function validarNombre() {
-            var nombre = document.getElementById("name").value;
-            var error = document.getElementById("errorNombre");
-            if (!nombre.trim()) {
-                error.style.display = 'inline';
-                error.innerHTML = "Por favor, ingresa tu nombre completo.";
-                error.style.color = "red";
-            } else if (/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{2,}$/.test(nombre)) {
-                error.style.display = 'none';
-            } else {
-                error.style.display = 'inline';
-                error.innerHTML = "El nombre solo puede contener letras y espacios.";
-                error.style.color = "red";
+        var todos_css = ["css/estilo.css", "css/estilo_oscuro.css", "css/estilo_sepia.css", "css/estilo_azul.css"];
+        css_actual = 0;
+        var css_link = document.getElementById("css_archivo");
+
+        window.onload = function () {
+            document.onkeydown = function (event) {
+                tecla_pulsada(event);
+            };
+        }
+
+        window.onload = function() {
+        const fechaInput = document.getElementById("fecha");
+        const hoy = new Date();
+        const fechaHoy = hoy.toISOString().split('T')[0];  
+        
+        fechaInput.value = fechaHoy;
+        };
+
+        
+        function tecla_pulsada(event) {
+            if (event.keyCode == 39) {
+                css_actual = (css_actual + 1) % todos_css.length
+                css_link.setAttribute("href", todos_css[css_actual])
             }
         }
 
-        function validarCorreo() {
-            var correo = document.getElementById("email").value;
-            var error = document.getElementById("errorCorreo");
-            if (!correo.trim()) {
-                error.style.display = 'inline';
-                error.innerHTML = "Por favor, ingresa tu correo electrónico.";
-                error.style.color = "red";
-            } else if (/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(correo)) {
-                error.style.display = 'none';
+
+        function comprueba_nombre() {
+            var nombre = document.getElementById("nombre").value; // el nombre que ha escrito en el cuadro
+            var salida = document.getElementById("errnombre");
+
+            if (nombre.length == 0 || nombre == null || /^\s+$/.test(nombre)) {
+                salida.style.display = 'inline';
+                salida.innerHTML = "Obligatorio: Rellena tu nombre";
+                salida.style.color = "red";
+            } else if (/^[A-Z][a-zñáéíóú]{2,20}((\s|\-)[A-Z][a-zñáéíóú]{2,20})*$/.test(nombre)) {
+                salida.innerHTML = "OK";
+                salida.style.color = "green";
+
             } else {
-                error.style.display = 'inline';
-                error.innerHTML = "Introduce un correo electrónico válido.";
-                error.style.color = "red";
+                salida.style.display = 'inline';
+                salida.innerHTML = "Nombre incorrecto";
+                salida.style.color = "red";
+            }
+
+        }
+
+
+
+
+        function comprueba_apellido() {
+            var apellido = document.getElementById("apellido").value;
+            var salida = document.getElementById("errapellido");
+
+            if (apellido.length == 0 || apellido == null || /^\s+$/.test(apellido)) {
+                salida.style.display = 'inline';
+                salida.innerHTML = "Obligatorio: Rellena tu nombre";
+                salida.style.color = "red";
+            } else if (/^[A-Z][a-z]{2,20}(\s[A-za-z]{2,20})*$/.test(apellido)) {
+                salida.innerHTML = "OK";
+                salida.style.color = "green";
+            } else {
+                salida.style.display = 'inline';
+                salida.innerHTML = "Apellido incorrecto, ejemplo: Cordoba";
+                salida.style.color = "red";
             }
         }
 
-        function validarTelefono() {
-            var telefono = document.getElementById("phone").value;
-            var error = document.getElementById("errorTelefono");
-            if (!telefono.trim()) {
-                error.style.display = 'inline';
-                error.innerHTML = "Por favor, ingresa tu número de teléfono.";
-                error.style.color = "red";
-            } else if (/^\+?[0-9]{1,3} ?[0-9]{3,} ?[0-9]{2,}$/.test(telefono)) {
-                error.style.display = 'none';
+        ///Comprobar e-mail 
+        function comprueba_correo() {
+            var correo = document.getElementById("correo").value;
+            var salida = document.getElementById("errcorreo");
+
+            if (correo.length == 0 || correo == null || /^\s+$/.test(correo)) {
+                salida.innerHTML = "Has de rellenar el correo";
+                salida.style.display = 'inline';
+                salida.style.color = "red";
+            } else if (/^[a-z0-9\-]{1,}@[a-z0-9]{1,}\.[a-z]{2,4}$/.test(correo)) {
+                salida.innerHTML = "OK";
+                salida.style.color = "green";
+
+                ;
             } else {
-                error.style.display = 'inline';
-                error.innerHTML = "Introduce un número de teléfono válido.";
-                error.style.color = "red";
+                salida.innerHTML = "correo incorrecto, ejemplo diego@cosa.com";
+                salida.style.display = 'inline';
+                salida.style.color = "red";
+            }
+
+        }
+
+        ///Comprobar password
+        function comprueba_password() {
+            var password = document.getElementById("password").value;
+            var salida = document.getElementById("errpassword");
+
+            if (password.length == 0 || password == null || /^\s+$/.test(password)) {
+                salida.innerHTML = "Has de rellenar la contraseña ";
+                salida.style.display = 'inline';
+                salida.style.color = "red";
+            } else if (/^[a-zA-Z0-9]{3,20}$/.test(password)) { // buscar patron para contraseña mas compleja
+                salida.innerHTML = "OK";
+                salida.style.color = "green";
+
+                ;
+                
+            } else {
+                salida.innerHTML = "Contraseña incorrecta, solo numeros y letras minimo 3 y maximo 20, ejemplo inves";
+                salida.style.display = 'inline';
+                salida.style.color = "red";
+            }
+
+        }
+
+        //direccion
+
+        function validar_direccion() {
+            var via = document.getElementById("via").value;
+            var errorDireccion = document.getElementById("errvia");
+
+            if (via.length == 0 || via == null || /^\s+$/.test(via)) {
+                errorDireccion.style.display = 'inline';
+                errorDireccion.innerHTML = "Obligatoria: Rellena la calle/avenida/paseo. Ejemplo Miguel Cervantes 33";
+                errorDireccion.style.color = "red";
+            } else if (/^[A-Z][a-z]{3,20}(\s[A-za-z0-9]{1,20})*$/.test(via)) {
+                errorDireccion.innerHTML = "OK";
+                errorDireccion.style.color = "green";
+
+            } else {
+                errorDireccion.style.display = 'inline';
+                errorDireccion.innerHTML = "Obligatorio: Comprueba la calle/avenida/paseo. Ejemplo Miguel Cervantes 33";
+                errorDireccion.style.color = "red";
+            }
+
+        }
+
+        //Comprobar Codigo Postal
+
+
+        function validarPostal() {
+            var valor = document.getElementById("cp").value;
+            var inner = document.getElementById("errpostal");
+            valor = valor.replace(/\D/g, ''); //quita lo que no sea numero
+            if (valor.trim() === "") {
+                inner.innerHTML = "Por favor introduzca un código postal";
+                inner.style.color = "red";
+                activo_postal = false;
+            } else if (!(/^\d{5}$/.test(valor))) {   //comprobar de 01001 a 50800
+                inner.innerHTML = "Introduzca correctamente su código postal";
+                inner.style.color = "red";
+                activo_postal = false;
+            } else {
+
+                valor = parseInt(valor, 10);
+                inner.innerHTML = "OK";
+                inner.style.color = "green";
+                activo_postal = true;
             }
         }
 
-        function validarCodigoPostal() {
-            var codigoPostal = document.getElementById("postalCode").value;
-            var error = document.getElementById("errorPostalCode");
-            if (!codigoPostal.trim()) {
-                error.style.display = 'inline';
-                error.innerHTML = "Por favor, ingresa tu código postal.";
-                error.style.color = "red";
-            } else if (/^\d{5}$/.test(codigoPostal)) {
-                error.style.display = 'none';
-            } else {
-                error.style.display = 'inline';
-                error.innerHTML = "Introduce un código postal válido (5 dígitos).";
-                error.style.color = "red";
-            }
-        }
+        
 
-        function validarDNI() {
+        //Comprobar DNI
+
+        function validarDni() {
             var dni = document.getElementById("dni").value;
-            var error = document.getElementById("errorDNI");
-            if (!dni.trim()) {
-                error.style.display = 'inline';
-                error.innerHTML = "Por favor, ingresa tu DNI.";
-                error.style.color = "red";
-            } else if (/^\d{8}[A-Za-z]$/.test(dni)) {
-                error.style.display = 'none';
+            var salida = document.getElementById("errdni");
+            var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J',
+                'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+
+            if (!(/^\d{1,8}[A-Z]$/.test(dni))) {
+                salida.style.display = 'inline';
+                salida.innerHTML = "Formato DNI no válido, ejemplo de formato válido: 71238276P ";
+                salida.style.color = "red";
             } else {
-                error.style.display = 'inline';
-                error.innerHTML = "Introduce un DNI válido (8 dígitos seguido de una letra).";
-                error.style.color = "red";
+                salida.innerHTML = "OK";
+                salida.style.color = "green";
+
+                // Calcula la letra para comprobar dni
+                if (dni.charAt(8).toUpperCase() != letras[(dni.substring(0, 8)) % 23]) {
+                    salida.style.display = 'inline';
+                    salida.innerHTML = "La letra del DNI no corresponde con el número indicado";
+                    salida.style.color = "red";
+                } else {
+                    salida.innerHTML = "OK";
+                    salida.style.color = "green";
+                }
             }
         }
 
-        function validarFormulario() {
-            validarNombre();
-            validarCorreo();
-            validarTelefono();
-            validarCodigoPostal();
-            validarDNI();
+        //Letras en mayúsculas
+
+        function mayus(m) {
+            m.value = m.value.toUpperCase();  //pasa a mayusculas el valor del elemento
         }
+
+        //recomendacion
+
+        function comprobar_intereses() {
+            var cont = 0;
+            var cuanto = document.getElementById("cinteres");
+            if (cuanto.checked) {   // si lo ha seleccionado
+                cont++;
+            }
+            var cuanto = document.getElementById("cinteres1");
+            if (cuanto.checked) {
+                cont++;
+            }
+            var cuanto = document.getElementById("cinteres2");
+            if (cuanto.checked) {
+                cont++;
+            }
+            var cuanto = document.getElementById("cinteres3");
+            if (cuanto.checked) {
+                cont++;
+            }
+            var cuanto = document.getElementById("cinteres4");
+            if (cuanto.checked) {
+                cont++;
+            }
+
+            if (cont < 3) {   // ha marcado menos de dos
+                var textspan = document.getElementById("errinteres");
+                textspan.innerHTML = "3 intereses minimo";
+                textspan.style.color = "red";
+                return false;
+            }
+            var textspan = document.getElementById("errinteres");
+            textspan.innerHTML = "OK";
+            textspan.style.color = "green";
+            return true;
+        }
+
+  
+
+        function limita2(maximoCaracteres) {
+            var elemento = document.getElementById("observaciones");
+            if (elemento.value.length >= maximoCaracteres) {
+                return false;
+            } else {
+                var quedan = maximoCaracteres - elemento.value.length - 1;
+                document.getElementById("spancaracteres").innerHTML = "Te quedan " + quedan + " caracteres";
+                return true;
+            }
+        }
+
+        // Solo Letras
+
+
+        function permitir(elevento, caracteres_permitidos) {
+            var Numeros = "0123456789";
+            var caracteres = " abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
+            var Numeros_Caracteres = Numeros + caracteres;
+            var Letras_especiales = [8, 37, 39, 46];
+
+            switch (caracteres_permitidos) {
+                case 'num':
+                    caracteres_permitidos = Numeros;
+                    break;
+                case 'car':
+                    caracteres_permitidos = caracteres;
+                    break;
+                case 'num_car':
+                    caracteres_permitidos = Numeros_Caracteres;
+                    break;
+            }
+            var evento = elevento || window.event;
+            var codigodecaracter = evento.charCode || evento.keyCode;
+            var caracter = String.fromCharCode(codigodecaracter);
+            var tecla_especial_permitida = false;
+
+            for (var i in Letras_especiales) {
+                if (codigodecaracter == Letras_especiales[i]) {
+                    tecla_especial_permitida = true;
+                    break;
+                }
+            }
+            return caracteres_permitidos.indexOf(caracter) != -1 || tecla_especial_permitida;
+        }
+
+        function limita(elEvento, maximoCaracteres) {
+            var elemento = document.getElementById("texto");
+            // Obtener la tecla pulsada
+            var evento = elEvento || window.event;
+            var codigoCaracter = evento.charCode || evento.keyCode;
+            // Permitir utilizar las teclas con flecha horizontal
+            if (codigoCaracter == 37 || codigoCaracter == 39) {
+                return true;
+            }
+            if (codigoCaracter == 8 || codigoCaracter == 46) {
+                return true;
+            } else if (elemento.value.length >= maximoCaracteres) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function actualizaInfo(maximoCaracteres) {
+            var elemento = document.getElementById("texto");
+            var info = document.getElementById("info");
+            if (elemento.value.length >= maximoCaracteres) {
+                info.innerHTML = "Máximo " + maximoCaracteres + " caracteres";
+            } else {
+                info.innerHTML = "Puedes escribir hasta " + (maximoCaracteres - elemento.value.length) + " caracteres adicionales";
+
+
+            }
+
+
+        }
+        //Botón desavilitalo, se activara cuando este todos los campos correctos
+
+        function botonDisabled() {
+            if (
+                document.getElementById("errnombre").innerHTML == "OK" &&
+                document.getElementById("errcorreo").innerHTML == "OK" &&
+                document.getElementById("errpassword").innerHTML == "OK" &&
+                document.getElementById("errvia").innerHTML == "OK" &&
+                document.getElementById("errpostal").innerHTML == "OK" &&
+                document.getElementById("errdni").innerHTML == "OK" &&
+                document.getElementById("errinteres").innerHTML == "OK"
+            ) {
+                document.getElementById("btnEnviar").disabled = false; //activa el borón enviar
+            } else {
+                document.getElementById("btnEnviar").disabled = true; //desactiva el borón enviar
+            }
+        }
+
+        // Nuevas funciones para los botones de radio
+
+ function verificar_conectividad(){
+	document.getElementById('conectividad').style.display = "block";
+	document.getElementById('resolucion').style.display = "none";
+    var cuanto = document.getElementById("cinteres");
+            if (cuanto.checked) {
+                cont++;
+            }
+    
+}
+
+function verificar_monitor(){
+	document.getElementById('conectividad').style.display = "none";
+	document.getElementById('resolucion').style.display = "block";
+}
+
+function verificar_teclado(){
+	document.getElementById('conectividad').style.display = "none";
+	document.getElementById('resolucion').style.display = "none";
+}
+
     </script>
 </head>
+
 <body>
-    <div id="header">
-        <h1>Contacto</h1>
-        <p>Estamos aquí para ayudarte</p>
+
+<div class="header">
+    <h1>Perifericos</h1>
+
+</div>
+
+<div class="topnav">
+    <a href="index.html">Inicio</a>
+    <a href="formulario.html">Formular Pedido</a>
+    <a href="precios.html">Precios</a>
+    <a href="ubicacion.html">Ubicacion</a>
+    <a href="./XML/XML_DTD/tienda_perifericos.xml">XML con DTD</a>
+    <a href="./XML/XML_XSD/tienda_perifericos.xml">XML con XSD</a>
+  
+    
+  </div>
+
+<div class="row">
+    <div class="leftcolumn">
+        <div class="card">
+            <h2>Formulario de Pedidos</h2>
+            <h5>Rellena los siguientes campos:</h5>
+            
+            
+            
+            
+            
+            <form id="formulario" action="recibe.php" method="post">
+                <p>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" value="" oninput='comprueba_nombre(); botonDisabled();'/>
+                    <span id="errnombre"></span>
+                </p>
+                <!-- <p>
+                    Apellido:
+                    <input type="text" name="apellido" id="apellido" value="" oninput="comprueba_apellido(); botonDisabled();" />
+                    <span id="errapellido"></span>
+                </p> 
+            -->
+                <p>
+                    <label for="correo">e-mail:</label>
+                    <input type="text" id="correo" name="correo" value="" maxlength="30" oninput="comprueba_correo(); botonDisabled();"/>
+                    <span id="errcorreo"></span>
+                </p>
+                <p>
+                    <label for="password">contraseña:</label>
+                    <input type="password" id="password" name="password" value="" maxlength="30" oninput="comprueba_password(); botonDisabled();"/>
+                    <span id="errpassword"></span>
+                </p>
+
+                <p>
+                    <label for="fecha">Fecha de nacimiento:</label>
+                    <input type="date" id="fecha" name="fecha" oninput="comprueba_fecha(); requiered " />
+                    <span id="errfecha"></span>
+                </p>
+
+
+                <p>
+                    <label>Via Publica:</label><br/>
+                    <select id="tipoVia" name="tipovia">
+                        <option value="cl">Calle</option>
+                        <option value="av">Avenida</option>
+                        <option value="po">Paseo</option>
+                    </select>
+                    <input type="text" id="via" name="via" value="" maxlength="20" oninput="validar_direccion(); botonDisabled();"/>
+                    <span id="errvia"></span>
+                </p>
+                <p>
+                    <label for="cp">Código Postal :</label>
+                    <input type="text" id="cp" name="codigo" value="" maxlength="5" onkeypress="return permitir(event, 'num')" oninput="validarPostal(); botonDisabled();"/>
+                    <span id="errpostal"></span>
+                </p>
+                <p>
+                    <label for="dni">DNI :</label>
+                    <input type="text" id="dni" name="dni" value="" oninput="mayus(this); validarDni(); botonDisabled(); ponerCeros()" maxlength="9"/><span id="errdni"></span>
+                </p>
+                <p>
+                    <label for="cinteres">Intereses (minimo 3):</label><br/><br/>
+                    <input type="checkbox" name="interes[]" value="amigos" id="cinteres" onclick="comprobar_intereses(); botonDisabled();"/>Amigos<br/>
+                    <input type="checkbox" name="interes[]" value="anuncios" id="cinteres1" onclick="comprobar_intereses(); botonDisabled();"/>Anuncios<br/>
+                    <input type="checkbox" name="interes[]" value="blog" id="cinteres2" onclick="comprobar_intereses(); botonDisabled();"/>Blog<br/>
+                    <input type="checkbox" name="interes[]" value="rrss" id="cinteres3" onclick="comprobar_intereses(); botonDisabled();"/>Redes sociales<br/>
+                    <input type="checkbox" name="interes[]" value="tv" id="cinteres4" onclick="comprobar_intereses(); botonDisabled();"/>Television<br/>
+                    <br/>
+                    <span id="errinteres"></span>
+                </p>
+                <p>
+                    <label>Que producto quieres :</label> <br/><br/>
+                    <input type="radio" name="producto" value="raton" id="raton" onclick="verificar_conectividad(); botonDisabled();"/> Raton <br/>
+                    <input type="radio" name="producto" value="teclado" id="teclado" onclick="verificar_teclado(); botonDisabled();" checked /> Teclado <br/>
+                    <input type="radio" name="producto" value="monitor" id="monitor" onclick="verificar_monitor(); botonDisabled();"/> Monitor
+                    <br/>
+                    
+                    <span id="errproducto"></span>
+                    <br/>
+                    <div id ="conectividad" style="display: none;">
+                        <label>conectividad :</label> <br/><br/>
+                        <input type="radio" name="conectividad" value="inalambrico" id="medio0" checked /> Inalambrico<br/>
+                        <input type="radio" name="conectividad" value="cable" id="medio1" /> Con cable 
+                        <span id="medio"></span><br/>
+                    </div>
+                    
+                    
+                    <div id ="resolucion" style="display: none;">
+                        <label>resolucion :</label> <br/><br/>
+                        <input type="radio" name="resolucion" value="hd" id="fullhd" checked /> Full HD <br/>
+                        <input type="radio" name="resolucion" value="2k" id="2k" /> 2K 
+                        <span id="superior"></span> <br/>
+                    </div>
+
+                    <p>
+                        <label for="color">Selecciona el color del producto:</label>
+                        <input type="color" id="color" name="color" value="#ff0000" />
+                    </p>
+
+
+                    <label>Observaciones :</label><br/>
+                    <textarea id="observaciones" name="observaciones" cols="50" rows="5" onkeypress="return limita2(100)"></textarea><br/>
+                    <span id="spancaracteres"></span>
+                </p>
+                <p>
+                    <button id="btnEnviar" name="btnEnviar" type="submit" disabled="disabled">Enviar</button>
+                    <input type="reset" name="borra" value="Borrar" onclick="window.location.reload()"/>
+                </p>
+            </form>
+
+
+        </div>
+
     </div>
+    <div class="rightcolumn">
+        <div class="card">
+            <h2>Sobre mi</h2>
+            <div class="fakeimg" >
+                <a><img src="img/raton_icon.png" width="20%" alt="Imagen de un raton"/></a>
+            </div>
+            <p>Soy una tienda que ofrece productos relacionados con los perifericos</p>
+        </div>
+        <div class="card">
+            <h3>Popular Post</h3>
+            <div class="fakeimg">
+                <a href="https://es.wikipedia.org/wiki/Rat%C3%B3n_(inform%C3%A1tica)"><img src="img/raton_post.jpg" width="30%" alt="Imagen de un ratón"/></a>
+            </div>
+            <div class="fakeimg">
+                <a href="https://es.wikipedia.org/wiki/Teclado_(inform%C3%A1tica)"><img src="img/teclado.jpg" width="30%" alt="Imagen de un ratón"/></a>
+            </div>
+            <div class="fakeimg">
 
-    <nav id="nav">
-        <a href="index.html">Inicio</a>
-        <a href="menu.html">Menú</a>
-        <a href="sobre-nosotros.html">Sobre Nosotros</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="reserva.html">Reservar</a>
-    </nav>
-
-    <div class="content">
-        <h2>Contáctanos</h2>
-        <p>Para consultas, puedes comunicarte con nosotros:</p>
-        <p><strong>Dirección:</strong> Av. de los Estudiantes, 83, 13300 Valdepeñas, Ciudad Real</p>
-        <p><strong>Teléfono:</strong> +34 675 08 68 19</p>
-        <p><strong>Correo electrónico:</strong> <a href="mailto:cafeteriaydelicias@gmail.com">cafeteriaydelicias@gmail.com</a></p>
-
-        <form action="submit-form.php" method="post" onsubmit="event.preventDefault(); validarFormulario();">
-            <h3>Formulario de Contacto</h3>
-
-            <label for="name">Nombre Completo:</label>
-            <input type="text" id="name" name="name" required placeholder="Introduce tu nombre completo" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]{2,}" title="El nombre solo puede contener letras y espacios.">
-            <span id="errorNombre" style="display: none;"></span>
-
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" title="Introduce un correo electrónico válido.">
-            <span id="errorCorreo" style="display: none;"></span>
-
-            <label for="phone">Teléfono:</label>
-            <input type="tel" id="phone" name="phone" required placeholder="+34 600 123 456" pattern="\+?[0-9]{1,3} ?[0-9]{3,} ?[0-9]{2,}" title="Introduce un número de teléfono válido.">
-            <span id="errorTelefono" style="display: none;"></span>
-
-            <label for="postalCode">Código Postal:</label>
-            <input type="text" id="postalCode" name="postalCode" required placeholder="Código Postal" pattern="^\d{5}$" title="Introduce un código postal válido (5 dígitos).">
-            <span id="errorPostalCode" style="display: none;"></span>
-
-            <label for="dni">DNI:</label>
-            <input type="text" id="dni" name="dni" required placeholder="DNI (8 dígitos + letra)" pattern="^\d{8}[A-Za-z]$" title="Introduce un DNI válido (8 dígitos seguido de una letra).">
-            <span id="errorDNI" style="display: none;"></span>
-
-            <label for="date">Fecha de Visita:</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="time">Hora Preferida:</label>
-            <input type="time" id="time" name="time" required>
-
-            <label for="guests">Número de Invitados:</label>
-            <input type="number" id="guests" name="guests" min="1" max="20" required placeholder="Introduce el número de invitados">
-
-            <label for="file">Adjuntar Archivo:</label>
-            <input type="file" id="file" name="file" accept=".jpg,.jpeg,.png,.pdf">
-
-            <label for="service">Servicio:</label>
-            <select id="service" name="service" required>
-                <option value="">Selecciona una opción</option>
-                <option value="consulta">Consulta General</option>
-                <option value="reserva">Reserva de Mesa</option>
-                <option value="evento">Organización de Evento</option>
-            </select>
-
-            <fieldset class="checkbox-group">
-                <legend>Preferencias de Contacto:</legend>
-                <label><input type="checkbox" name="contact[]" value="email"> Correo Electrónico</label>
-                <label><input type="checkbox" name="contact[]" value="phone"> Teléfono</label>
-                <label><input type="checkbox" name="contact[]" value="sms"> SMS</label>
-            </fieldset>
-
-            <label for="message">Mensaje:</label>
-           <textarea id="message" name="message" placeholder="Escribe aquí tu mensaje" maxlength="50"></textarea>
-
-            <input type="submit" value="Enviar Formulario">
-        </form>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Coctactame</h3>
+            <h5><a href="mailto:diegocordobaasir@gmail.com">Correo</a></h5>
+            <p></p>
+        </div>
     </div>
+</div>
 
-    <footer id="footer">
-        <p>&#169; 2024 Cafetería Delicia. Todos los derechos reservados.</p>
-        <p>
-            <a href="https://validator.w3.org/check?uri=referer">
-                <img src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML5" height="31" width="88">
-            </a>
-        </p>
-    </footer>
+<div class="footer">
+    <h2>© Diego Córdoba</h2>
+</div>
+<p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+                src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+</p>
+<p>
+    <a href="rss/rss.xml"><img src="img/icon_rss.png" alt="Feed de rss" width="5%" title="rss"  /></a>
+    <a href="rss/atom.xml"><img src="img/icon_atom.png" alt="Feed de rss" width="5%" title="atom"  /></a>
+</p>
+
 </body>
 </html>
