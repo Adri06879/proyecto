@@ -325,28 +325,47 @@
 
         
 
-       function validarTiposContacto() {
+      function comprobar_contactos() {
     var cont = 0;
-    var opciones = ["contacto1", "contacto2", "contacto3", "contacto4", "contacto5"];
-    
-    for (var i = 0; i < opciones.length; i++) {
-        var checkbox = document.getElementById(opciones[i]);
-        if (checkbox && checkbox.checked) {
-            cont++;
-        }
+    var cuanto = document.getElementById("ccontacto");
+    if (cuanto.checked) {   
+        cont++;
+    }
+    cuanto = document.getElementById("ccontacto1");
+    if (cuanto.checked) {
+        cont++;
+    }
+    cuanto = document.getElementById("ccontacto2");
+    if (cuanto.checked) {
+        cont++;
+    }
+    cuanto = document.getElementById("ccontacto3");
+    if (cuanto.checked) {
+        cont++;
+    }
+    cuanto = document.getElementById("ccontacto4");
+    if (cuanto.checked) {
+        cont++;
     }
 
-    var mensajeError = document.getElementById("errorContacto");
-    
-    if (cont < 3) {  
-        mensajeError.innerHTML = "Debes seleccionar al menos 3 tipos de contacto.";
-        mensajeError.style.color = "red";
+    var textspan = document.getElementById("errcontacto");
+
+    if (cont < 1) {  
+        textspan.innerHTML = "Debes seleccionar al menos 1 método de contacto.";
+        textspan.style.color = "red";
         return false;
-    } else {
-        mensajeError.innerHTML = "OK";
-        mensajeError.style.color = "green";
-        return true;
+    } 
+    if (cont > 3) {  
+        textspan.innerHTML = "Solo puedes seleccionar hasta 3 métodos de contacto.";
+        textspan.style.color = "red";
+        event.target.checked = false; 
+        return false;
     }
+
+    textspan.innerHTML = "OK";
+    textspan.style.color = "green";
+    return true;
+}
 }
   
 
@@ -500,15 +519,14 @@
                     <input type="text" id="dni" name="dni" value="" oninput="mayus(this); validarDni(); botonDisabled(); ponerCeros()" maxlength="9"/><span id="errdni"></span>
                 </p>
                 <p>
-                   <label for="contacto1">Tipos de contacto (máximo 3):</label><br/><br/>
-<input type="checkbox" name="contacto[]" value="email" id="contacto1" onclick="validarTiposContacto(); botonDisabled();"/>Correo electrónico<br/>
-<input type="checkbox" name="contacto[]" value="telefono" id="contacto2" onclick="validarTiposContacto(); botonDisabled();"/>Teléfono<br/>
-<input type="checkbox" name="contacto[]" value="whatsapp" id="contacto3" onclick="validarTiposContacto(); botonDisabled();"/>WhatsApp<br/>
-<input type="checkbox" name="contacto[]" value="sms" id="contacto4" onclick="validarTiposContacto(); botonDisabled();"/>SMS<br/>
-<input type="checkbox" name="contacto[]" value="correo" id="contacto5" onclick="validarTiposContacto(); botonDisabled();"/>Correo postal<br/>
+                  <label for="ccontacto">Métodos de contacto (mínimo 1, máximo 3):</label><br/><br/>
+<input type="checkbox" name="contacto[]" value="email" id="contacto1" onclick="comprobar_contactos(); botonDisabled();"/>Email<br/>
+<input type="checkbox" name="contacto[]" value="telefono" id="contacto2" onclick="comprobar_contactos(); botonDisabled();"/>Teléfono<br/>
+<input type="checkbox" name="contacto[]" value="whatsapp" id="contacto3" onclick="comprobar_contactos(); botonDisabled();"/>WhatsApp<br/>
+<input type="checkbox" name="contacto[]" value="sms" id="contacto4" onclick="comprobar_contactos(); botonDisabled();"/>SMS<br/>
+<input type="checkbox" name="contacto[]" value="correo" id="contacto5" onclick="comprobar_contactos(); botonDisabled();"/>Correo Postal<br/>
 <br/>
 <span id="errorContacto" style="display: block; margin-top: 5px;"></span>
-                 
                    
 
                     <label>Mas información:</label><br/>
