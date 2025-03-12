@@ -476,12 +476,7 @@
                     <input type="text" name="nombre" id="nombre" value="" oninput='comprueba_nombre(); botonDisabled();'/>
                     <span id="errnombre"></span>
                 </p>
-                <!-- <p>
-                    Apellido:
-                    <input type="text" name="apellido" id="apellido" value="" oninput="comprueba_apellido(); botonDisabled();" />
-                    <span id="errapellido"></span>
-                </p> 
-        --->
+               
                 <p>
                     <label for="correo">e-mail:</label>
                     <input type="text" id="correo" name="correo" value="" maxlength="30" oninput="comprueba_correo(); botonDisabled();"/>
@@ -495,17 +490,6 @@
                     <span id="errfecha"></span>
                 </p>
 
-
-                <p>
-                    <label>Via Publica:</label><br/>
-                    <select id="tipoVia" name="tipovia">
-                        <option value="cl">Calle</option>
-                        <option value="av">Avenida</option>
-                        <option value="po">Paseo</option>
-                    </select>
-                    <input type="text" id="via" name="via" value="" maxlength="20" oninput="validar_direccion(); botonDisabled();"/>
-                    <span id="errvia"></span>
-                </p>
                 <p>
                     <label for="cp">Código Postal :</label>
                     <input type="text" id="cp" name="codigo" value="" maxlength="5" onkeypress="return permitir(event, 'num')" oninput="validarPostal(); botonDisabled();"/>
@@ -543,48 +527,14 @@
             </form>
 
 
-        </div>
+       </div>
 
+    <div id="footer">
+        <p>© 2025 Cafetería Delicia - Todos los derechos reservados</p>
+        <p><a href="mailto:cafeteriaydelicias@gmail.com"><img src="imagenes/email-icon.png" alt="Email" /> Contacto</a></p>
     </div>
-    <div class="rightcolumn">
-        <div class="card">
-            <h2>Sobre mi</h2>
-            <div class="fakeimg" >
-                <a><img src="img/raton_icon.png" width="20%" alt="Imagen de un raton"/></a>
-            </div>
-            <p>Soy una tienda que ofrece productos relacionados con los perifericos</p>
-        </div>
-        <div class="card">
-            <h3>Popular Post</h3>
-            <div class="fakeimg">
-                <a href="https://es.wikipedia.org/wiki/Rat%C3%B3n_(inform%C3%A1tica)"><img src="img/raton_post.jpg" width="30%" alt="Imagen de un ratón"/></a>
-            </div>
-            <div class="fakeimg">
-                <a href="https://es.wikipedia.org/wiki/Teclado_(inform%C3%A1tica)"><img src="img/teclado.jpg" width="30%" alt="Imagen de un ratón"/></a>
-            </div>
-            <div class="fakeimg">
-
-            </div>
-        </div>
-        <div class="card">
-            <h3>Coctactame</h3>
-            <h5><a href="mailto:diegocordobaasir@gmail.com">Correo</a></h5>
-            <p></p>
-        </div>
-    </div>
-</div>
-
-<div class="footer">
-    <h2>© Diego Córdoba</h2>
-</div>
-<p>
-    <a href="http://validator.w3.org/check?uri=referer"><img
-                src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
-</p>
-<p>
-    <a href="rss/rss.xml"><img src="img/icon_rss.png" alt="Feed de rss" width="5%" title="rss"  /></a>
-    <a href="rss/atom.xml"><img src="img/icon_atom.png" alt="Feed de rss" width="5%" title="atom"  /></a>
-</p>
-
 </body>
 </html>
+
+</body>
+</html> 
