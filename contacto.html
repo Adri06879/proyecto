@@ -433,7 +433,47 @@
 
         }
       
+function validarTelefono() {
+    var telefono = document.getElementById("telefono").value;
+    var salida = document.getElementById("errtelefono");
 
+    if (telefono.length == 0 || telefono == null || /^\s+$/.test(telefono)) {
+        salida.innerHTML = "Introduce un número de teléfono";
+        salida.style.display = 'inline';
+        salida.style.color = "red";
+    } else if (!(/^\d{9}$/.test(telefono))) {
+        salida.innerHTML = "El número de teléfono debe tener 9 dígitos";
+        salida.style.display = 'inline';
+        salida.style.color = "red";
+    } else {
+        salida.innerHTML = "OK";
+        salida.style.color = "green";
+    }
+}
+
+function validarTiposContacto() {
+   
+
+    if (document.getElementById("contacto2").checked) {
+        telefonoInput.style.display = "block";
+    } else {
+        telefonoInput.style.display = "none";
+    }
+    validarTelefono();
+    return true;
+}
+
+function botonDisabled() {
+    
+
+    let telefonoValido = document.getElementById("errtelefono").innerHTML == "OK" || document.getElementById("telefonoInput").style.display == "none";
+
+    if (nombreValido && correoValido && dniValido && postalValido && contactoValido && telefonoValido) {
+        document.getElementById("btnEnviar").disabled = false;
+    } else {
+        document.getElementById("btnEnviar").disabled = true;
+    }
+}
         function botonDisabled() {
     let nombreValido = document.getElementById("errnombre").innerHTML == "OK";
     let correoValido = document.getElementById("errcorreo").innerHTML == "OK";
@@ -512,6 +552,11 @@
 <input type="checkbox" name="contacto[]" value="correo" id="contacto5" onclick="validarTiposContacto(); botonDisabled();"/>Correo Postal<br/>
 <br/>
 <span id="errorContacto" style="display: block; margin-top: 5px;"></span>
+                   <div id="telefonoInput" style="display: none;">
+    <label for="telefono">Número de teléfono:</label>
+    <input type="text" id="telefono" name="telefono" value="" maxlength="9" onkeypress="return permitir(event, 'num')" oninput="validarTelefono(); botonDisabled();"/>
+    <span id="errtelefono"></span>
+</div>
                    
           <label>Mas información:</label><br/>
             <textarea id="observaciones" name="observaciones" cols="50" rows="5" onkeypress="return limita2(100)"></textarea><br/>
