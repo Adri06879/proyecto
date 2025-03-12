@@ -352,6 +352,15 @@
     mensajeError.innerHTML = "OK";
     mensajeError.style.color = "green";
     return true;
+     
+     if (document.getElementById("contacto2").checked) {
+        document.getElementById("telefono").style.display = "block";
+    } else {
+        document.getElementById("telefono").style.display = "none";
+    }
+
+    return true;
+}
 }
   
 
