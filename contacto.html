@@ -246,7 +246,7 @@
             }
         }
 
-        ///Comprobar e-mail 
+     
         function comprueba_correo() {
             var correo = document.getElementById("correo").value;
             var salida = document.getElementById("errcorreo");
@@ -291,30 +291,31 @@
         }
 
 
-        function validarDni() {
-            var dni = document.getElementById("dni").value;
-            var salida = document.getElementById("errdni");
-            var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J',
-                'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+        function validarTiposContacto() {
+    var opciones = ["contacto1", "contacto2", "contacto3", "contacto4", "contacto5"];
+    var seleccionados = 0;
 
-            if (!(/^\d{1,8}[A-Z]$/.test(dni))) {
-                salida.style.display = 'inline';
-                salida.innerHTML = "Formato DNI no válido, ejemplo de formato válido: 71238276P ";
-                salida.style.color = "red";
-            } else {
-                salida.innerHTML = "OK";
-                salida.style.color = "green";
-
-                if (dni.charAt(8).toUpperCase() != letras[(dni.substring(0, 8)) % 23]) {
-                    salida.style.display = 'inline';
-                    salida.innerHTML = "La letra del DNI no corresponde con el número indicado";
-                    salida.style.color = "red";
-                } else {
-                    salida.innerHTML = "OK";
-                    salida.style.color = "green";
-                }
-            }
+    for (var i = 0; i < opciones.length; i++) {
+        var checkbox = document.getElementById(opciones[i]);
+        if (checkbox.checked) {
+            seleccionados++;
         }
+    }
+
+    var mensajeError = document.getElementById("errorContacto");
+
+    if (seleccionados > 3) {  
+        mensajeError.innerHTML = "Solo puedes seleccionar hasta 3 tipos de contacto.";
+        mensajeError.style.color = "red";
+        
+        
+        event.target.checked = false;
+        return false;
+    } else {
+        mensajeError.innerHTML = "";
+        return true;
+    }
+}
 
 
 
@@ -499,7 +500,7 @@
                     <input type="text" id="dni" name="dni" value="" oninput="mayus(this); validarDni(); botonDisabled(); ponerCeros()" maxlength="9"/><span id="errdni"></span>
                 </p>
                 <p>
-                   <label for="contacto1">Tipos de contacto (mínimo 3):</label><br/><br/>
+                   <label for="contacto1">Tipos de contacto (máximo 3):</label><br/><br/>
 <input type="checkbox" name="contacto[]" value="email" id="contacto1" onclick="validarTiposContacto(); botonDisabled();"/>Correo electrónico<br/>
 <input type="checkbox" name="contacto[]" value="telefono" id="contacto2" onclick="validarTiposContacto(); botonDisabled();"/>Teléfono<br/>
 <input type="checkbox" name="contacto[]" value="whatsapp" id="contacto3" onclick="validarTiposContacto(); botonDisabled();"/>WhatsApp<br/>
@@ -507,7 +508,6 @@
 <input type="checkbox" name="contacto[]" value="correo" id="contacto5" onclick="validarTiposContacto(); botonDisabled();"/>Correo postal<br/>
 <br/>
 <span id="errorContacto" style="display: block; margin-top: 5px;"></span>
-
                  
                    
 
