@@ -322,10 +322,11 @@
         function mayus(m) {
             m.value = m.value.toUpperCase();  
         }  
-
-  function validarTiposContacto() {
+function validarTiposContacto() {
     var cont = 0;
     var opciones = ["contacto1", "contacto2", "contacto3", "contacto4", "contacto5"];
+    var mensajeError = document.getElementById("errorContacto");
+    var telefonoInput = document.getElementById("telefonoInput");
 
     for (var i = 0; i < opciones.length; i++) {
         var checkbox = document.getElementById(opciones[i]);
@@ -333,9 +334,6 @@
             cont++;
         }
     }
-
-    var mensajeError = document.getElementById("errorContacto");
-    var telefonoInput = document.getElementById("telefonoInput");
 
     if (cont < 1) {
         mensajeError.innerHTML = "Debes seleccionar al menos 1 tipo de contacto.";
@@ -346,8 +344,7 @@
     if (cont > 3) {
         mensajeError.innerHTML = "Solo puedes seleccionar hasta 3 métodos de contacto.";
         mensajeError.style.color = "red";
-     
-        event.target.checked = false;
+        event.target.checked = false; 
         return false;
     }
 
@@ -361,8 +358,6 @@
     }
     validarTelefono();
     return true;
-}
-  
 
         function limita2(maximoCaracteres) {
             var elemento = document.getElementById("observaciones");
@@ -488,11 +483,12 @@ function botonDisabled() {
     let dniValido = document.getElementById("errdni").innerHTML == "OK";
     let postalValido = document.getElementById("errpostal").innerHTML == "OK";
     let contactoValido = document.getElementById("errorContacto").innerHTML == "OK";
+    let telefonoValido = document.getElementById("errtelefono").innerHTML == "OK" || document.getElementById("telefonoInput").style.display == "none";
 
-    if (nombreValido && correoValido && dniValido && postalValido && contactoValido) {
-        document.getElementById("btnEnviar").disabled = false; 
+    if (nombreValido && correoValido && dniValido && postalValido && contactoValido && telefonoValido) {
+        document.getElementById("btnEnviar").disabled = false;
     } else {
-        document.getElementById("btnEnviar").disabled = true; 
+        document.getElementById("btnEnviar").disabled = true;
     }
 }
 
