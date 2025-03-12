@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Cafetería Delicia - Novedades</title>
+    <link href="http://www.cafeteriadelicia.com/atom.xml" rel="self"/>
+    <link href="http://www.cafeteriadelicia.com/"/>
+    <updated>2024-03-12T12:00:00Z</updated>
+    <id>urn:uuid:60a76c80-d399-11d9-b93C-0003939D1234</id>
+    <author>
+        <name>Cafetería Delicia</name>
+    </author>
+    <entry>
+        <title>Nueva Receta de Temporada</title>
+        <link href="http://www.cafeteriadelicia.com/nuevareceta.html"/>
+        <id>urn:uuid:1225c695-cfb8-4dda-a1b9-eb2d56744222</id>
+        <updated>2024-03-12T12:00:00Z</updated>
+        <summary>Descubre nuestra nueva tarta de fresas y chocolate, perfecta para la primavera.</summary>
+    </entry>
+    </feed>
