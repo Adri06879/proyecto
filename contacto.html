@@ -193,23 +193,23 @@
                 error.style.color = "red";
             }
         }
- function validar_direccion() {
-            var via = document.getElementById("via").value;
-            var errorDireccion = document.getElementById("errvia");
+ function comprueba_correo() {
+            var correo = document.getElementById("correo").value;
+            var salida = document.getElementById("errcorreo");
 
-            if (via.length == 0 || via == null || /^\s+$/.test(via)) {
-                errorDireccion.style.display = 'inline';
-                errorDireccion.innerHTML = "Obligatoria: Rellena la calle/avenida/paseo. Ejemplo Miguel Cervantes 33";
-                errorDireccion.style.color = "red";
-            } else if (/^[A-Z][a-z]{3,20}(\s[A-za-z0-9]{1,20})*$/.test(via)) {
-                errorDireccion.innerHTML = "OK";
-                errorDireccion.style.color = "green";
+            if (correo.length == 0 || correo == null || /^\s+$/.test(correo)) {
+                salida.innerHTML = "Has de rellenar el correo";
+                salida.style.display = 'inline';
+                salida.style.color = "red";
+            } else if (/^[a-z0-9\-]{1,}@[a-z0-9]{1,}\.[a-z]{2,4}$/.test(correo)) {
+                salida.innerHTML = "OK";
+                salida.style.color = "green";
 
+                ;
             } else {
-                errorDireccion.style.display = 'inline';
-                errorDireccion.innerHTML = "Obligatorio: Comprueba la calle/avenida/paseo. Ejemplo Miguel Cervantes 33";
-                errorDireccion.style.color = "red";
-           
+                salida.innerHTML = "correo incorrecto, ejemplo diego@cosa.com";
+                salida.style.display = 'inline';
+                salida.style.color = "red";
             }
         }
 
@@ -325,11 +325,11 @@
             <input type="tel" id="phone" name="phone" required placeholder="600 123 456" maxlength="9" oninput="validarTelefono()" pattern="^\d{9}$" title="Introduce un número de teléfono válido (solo números, 9 dígitos)">
             <span id="errorTelefono" style="display: none;"></span>
 
-            <label for="postalCode">Código Postal:</label>
-            <input type="text" id="postalCode" name="postalCode" required placeholder="Código Postal" pattern="^\d{5}$" title="Introduce un código postal válido (5 dígitos)." oninput="validarCodigoPostal()">
-            <span id="errorPostalCode" style="display: none;"></span>
-
-            <p>
+           <p>
+                    <label for="cp">Código Postal :</label>
+                    <input type="text" id="cp" name="codigo" value="" maxlength="5" onkeypress="return permitir(event, 'num')" oninput="validarPostal(); botonDisabled();"/>
+                    <span id="errpostal"></span>
+                </p>
                     <label for="dni">DNI :</label>
                     <input type="text" id="dni" name="dni" value="" oninput="mayus(this); validarDni(); botonDisabled(); ponerCeros()" maxlength="9"/><span id="errdni"></span>
                 </p>
