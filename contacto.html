@@ -466,9 +466,9 @@ function validarTiposContacto() {
     let correoValido = document.getElementById("errcorreo").innerHTML == "OK";
     let dniValido = document.getElementById("errdni").innerHTML == "OK";
     let postalValido = document.getElementById("errpostal").innerHTML == "OK";
-    let contactoValido = document.getElementById("errorContacto").innerHTML == "OK";
+   
 
-    if (nombreValido && correoValido && dniValido && postalValido && contactoValido) {
+    if (nombreValido && correoValido && dniValido && postalValido) {
         document.getElementById("btnEnviar").disabled = false; 
     } else {
         document.getElementById("btnEnviar").disabled = true; 
