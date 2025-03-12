@@ -178,7 +178,31 @@
         }
     </style>
     <script>
-        function validarNombre() {
+         var todos_css = ["css/estilo.css", "css/estilo_oscuro.css", "css/estilo_sepia.css", "css/estilo_azul.css"];
+        css_actual = 0;
+        var css_link = document.getElementById("css_archivo");
+
+        window.onload = function () {
+            document.onkeydown = function (event) {
+                tecla_pulsada(event);
+            };
+        }
+
+        window.onload = function() {
+        const fechaInput = document.getElementById("fecha");
+        const hoy = new Date();
+        const fechaHoy = hoy.toISOString().split('T')[0];  
+        
+        fechaInput.value = fechaHoy;
+        };
+
+        function tecla_pulsada(event) {
+            if (event.keyCode == 39) {
+                css_actual = (css_actual + 1) % todos_css.length
+                css_link.setAttribute("href", todos_css[css_actual])
+            }
+        }
+      function validarNombre() {
             var nombre = document.getElementById("name").value;
             var error = document.getElementById("errorNombre");
             if (!nombre.trim()) {
@@ -327,7 +351,7 @@
 
            <p>
                     <label for="cp">Código Postal :</label>
-                    <input type="text" id="cp" name="codigo" value="" maxlength="5" onkeypress="return permitir(event, 'num')" oninput="validarPostal(); botonDisabled();"/>
+                    <input type="text" id="cp" name="codigo" value="" maxlength="5" onkeypress="return permitir(event, 'num')" oninput="validarCodigoPostal(); botonDisabled();"/>
                     <span id="errpostal"></span>
                 </p>
                     <label for="dni">DNI :</label>
