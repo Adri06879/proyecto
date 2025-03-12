@@ -335,18 +335,25 @@
     }
 
     var mensajeError = document.getElementById("errorContacto");
-    
+
     if (cont < 1) {  
         mensajeError.innerHTML = "Debes seleccionar al menos 1 tipo de contacto.";
         mensajeError.style.color = "red";
         return false;
-    } else {
-        mensajeError.innerHTML = "OK";
-        mensajeError.style.color = "green";
-        return true;
+    } 
+    if (cont > 3) {  
+        mensajeError.innerHTML = "Solo puedes seleccionar hasta 3 métodos de contacto.";
+        mensajeError.style.color = "red";
+        
+      
+        event.target.checked = false;
+        return false;
     }
-}
 
+    mensajeError.innerHTML = "OK";
+    mensajeError.style.color = "green";
+    return true;
+}
   
 
         function limita2(maximoCaracteres) {
@@ -499,18 +506,17 @@
                     <input type="text" id="dni" name="dni" value="" oninput="mayus(this); validarDni(); botonDisabled(); ponerCeros()" maxlength="9"/><span id="errdni"></span>
                 </p>
                 <p>
-                  <label for="ccontacto">Métodos de contacto (mínimo 1):</label><br/><br/>
-<input type="checkbox" name="contacto[]" value="email" id="contacto1" onclick="comprobar_contactos(); botonDisabled();"/>Email<br/>
-<input type="checkbox" name="contacto[]" value="telefono" id="contacto2" onclick="comprobar_contactos(); botonDisabled();"/>Teléfono<br/>
-<input type="checkbox" name="contacto[]" value="whatsapp" id="contacto3" onclick="comprobar_contactos(); botonDisabled();"/>WhatsApp<br/>
-<input type="checkbox" name="contacto[]" value="sms" id="contacto4" onclick="comprobar_contactos(); botonDisabled();"/>SMS<br/>
-<input type="checkbox" name="contacto[]" value="correo" id="contacto5" onclick="comprobar_contactos(); botonDisabled();"/>Correo Postal<br/>
+                  <label for="ccontacto">Métodos de contacto (mínimo 1, máximo 3):</label><br/><br/>
+<input type="checkbox" name="contacto[]" value="email" id="contacto1" onclick="validarTiposContacto(); botonDisabled();"/>Email<br/>
+<input type="checkbox" name="contacto[]" value="telefono" id="contacto2" onclick="validarTiposContacto(); botonDisabled();"/>Teléfono<br/>
+<input type="checkbox" name="contacto[]" value="whatsapp" id="contacto3" onclick="validarTiposContacto(); botonDisabled();"/>WhatsApp<br/>
+<input type="checkbox" name="contacto[]" value="sms" id="contacto4" onclick="validarTiposContacto(); botonDisabled();"/>SMS<br/>
+<input type="checkbox" name="contacto[]" value="correo" id="contacto5" onclick="validarTiposContacto(); botonDisabled();"/>Correo Postal<br/>
 <br/>
 <span id="errorContacto" style="display: block; margin-top: 5px;"></span>
                    
-
-                    <label>Mas información:</label><br/>
-                    <textarea id="observaciones" name="observaciones" cols="50" rows="5" onkeypress="return limita2(100)"></textarea><br/>
+          <label>Mas información:</label><br/>
+            <textarea id="observaciones" name="observaciones" cols="50" rows="5" onkeypress="return limita2(100)"></textarea><br/>
                     <span id="spancaracteres"></span>
                 </p>
                 <p>
