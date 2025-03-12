@@ -531,7 +531,7 @@ function validarTiposContacto() {
                     <input type="text" id="dni" name="dni" value="" oninput="mayus(this); validarDni(); botonDisabled(); ponerCeros()" maxlength="9"/><span id="errdni"></span>
                 </p>
                <p>
-    <label for="ccontacto">Métodos de contacto (mínimo 1, máximo 3):</label><br/><br/>
+    <label for="ccontacto">Métodos de contacto (mínimo 1):</label><br/><br/>
     <input type="checkbox" name="contacto[]" value="email" id="contacto1" onclick="validarTiposContacto(); botonDisabled();"/>Email<br/>
     <input type="checkbox" name="contacto[]" value="telefono" id="contacto2" onclick="validarTiposContacto(); botonDisabled();"/>Teléfono<br/>
     <input type="checkbox" name="contacto[]" value="whatsapp" id="contacto3" onclick="validarTiposContacto(); botonDisabled();"/>WhatsApp<br/>
