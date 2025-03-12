@@ -193,20 +193,23 @@
                 error.style.color = "red";
             }
         }
+ function validar_direccion() {
+            var via = document.getElementById("via").value;
+            var errorDireccion = document.getElementById("errvia");
 
-        function validarCorreo() {
-            var correo = document.getElementById("email").value;
-            var error = document.getElementById("errorCorreo");
-            if (!correo.trim()) {
-                error.style.display = 'inline';
-                error.innerHTML = "Por favor, ingresa tu correo electrónico.";
-                error.style.color = "red";
-            } else if (/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(correo)) {
-                error.style.display = 'none';
+            if (via.length == 0 || via == null || /^\s+$/.test(via)) {
+                errorDireccion.style.display = 'inline';
+                errorDireccion.innerHTML = "Obligatoria: Rellena la calle/avenida/paseo. Ejemplo Miguel Cervantes 33";
+                errorDireccion.style.color = "red";
+            } else if (/^[A-Z][a-z]{3,20}(\s[A-za-z0-9]{1,20})*$/.test(via)) {
+                errorDireccion.innerHTML = "OK";
+                errorDireccion.style.color = "green";
+
             } else {
-                error.style.display = 'inline';
-                error.innerHTML = "Introduce un correo electrónico válido.";
-                error.style.color = "red";
+                errorDireccion.style.display = 'inline';
+                errorDireccion.innerHTML = "Obligatorio: Comprueba la calle/avenida/paseo. Ejemplo Miguel Cervantes 33";
+                errorDireccion.style.color = "red";
+           
             }
         }
 
@@ -270,7 +273,7 @@
 
         function validarFormulario() {
             validarNombre();
-            validarCorreo();
+            validarDireccion();
             validarTelefono();
             validarCodigoPostal();
             validarDNI();
