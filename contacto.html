@@ -322,14 +322,10 @@
             m.value = m.value.toUpperCase();  
         }  
 
-function validarTiposContacto() {
+  function validarTiposContacto() {
     var cont = 0;
     var opciones = ["contacto1", "contacto2", "contacto3", "contacto4", "contacto5"];
-    var mensajeError = document.getElementById("errorContacto");
-    var telefonoInput = document.getElementById("telefonoInput");
-
-    console.log("Inicio de validarTiposContacto()"); // Añade esta línea
-
+    
     for (var i = 0; i < opciones.length; i++) {
         var checkbox = document.getElementById(opciones[i]);
         if (checkbox && checkbox.checked) {
@@ -337,34 +333,24 @@ function validarTiposContacto() {
         }
     }
 
-    console.log("Número de checkboxes seleccionados:", cont); 
+    var mensajeError = document.getElementById("errorContacto");
 
-    if (cont < 1) {
+    if (cont < 1) {  
         mensajeError.innerHTML = "Debes seleccionar al menos 1 tipo de contacto.";
         mensajeError.style.color = "red";
-        telefonoInput.style.display = "none";
-        console.log("Mensaje de error:", mensajeError.innerHTML); 
         return false;
-    }
-    if (cont > 3) {
+    } 
+    if (cont > 3) {  
         mensajeError.innerHTML = "Solo puedes seleccionar hasta 3 métodos de contacto.";
         mensajeError.style.color = "red";
+        
+      
         event.target.checked = false;
-        console.log("Mensaje de error:", mensajeError.innerHTML); 
         return false;
     }
 
     mensajeError.innerHTML = "OK";
     mensajeError.style.color = "green";
-    console.log("Mensaje de éxito:", mensajeError.innerHTML); 
-
-    if (document.getElementById("contacto2").checked) {
-        telefonoInput.style.display = "block";
-    } else {
-        telefonoInput.style.display = "none";
-    }
-    validarTelefono();
-    console.log("Fin de validarTiposContacto()"); 
     return true;
 }
   
@@ -446,47 +432,7 @@ function validarTiposContacto() {
 
         }
       
-function validarTelefono() {
-    var telefono = document.getElementById("telefono").value;
-    var salida = document.getElementById("errtelefono");
 
-    if (telefono.length == 0 || telefono == null || /^\s+$/.test(telefono)) {
-        salida.innerHTML = "Introduce un número de teléfono";
-        salida.style.display = 'inline';
-        salida.style.color = "red";
-    } else if (!(/^\d{9}$/.test(telefono))) {
-        salida.innerHTML = "El número de teléfono debe tener 9 dígitos";
-        salida.style.display = 'inline';
-        salida.style.color = "red";
-    } else {
-        salida.innerHTML = "OK";
-        salida.style.color = "green";
-    }
-}
-
-function validarTiposContacto() {
-    // ... (resto del código de la función) ...
-
-    if (document.getElementById("contacto2").checked) {
-        telefonoInput.style.display = "block";
-    } else {
-        telefonoInput.style.display = "none";
-    }
-    validarTelefono();
-    return true;
-}
-
-function botonDisabled() {
-    // ... (resto del código de la función) ...
-
-    let telefonoValido = document.getElementById("errtelefono").innerHTML == "OK" || document.getElementById("telefonoInput").style.display == "none";
-
-    if (nombreValido && correoValido && dniValido && postalValido && contactoValido && telefonoValido) {
-        document.getElementById("btnEnviar").disabled = false;
-    } else {
-        document.getElementById("btnEnviar").disabled = true;
-    }
-}
         function botonDisabled() {
     let nombreValido = document.getElementById("errnombre").innerHTML == "OK";
     let correoValido = document.getElementById("errcorreo").innerHTML == "OK";
@@ -525,7 +471,7 @@ function botonDisabled() {
         <p><strong>Dirección:</strong> Av. de los Estudiantes, 83, 13300 Valdepeñas, Ciudad Real</p>
         <p><strong>Teléfono:</strong> +34 675 08 68 19</p>
         <p><strong>Correo electrónico:</strong> <a href="mailto:cafeteriaydelicias@gmail.com">cafeteriaydelicias@gmail.com</a></p>
-   
+
                 
             <form id="formulario" action="recibe.php" method="post">
                 <p>
@@ -557,20 +503,14 @@ function botonDisabled() {
                     <input type="text" id="dni" name="dni" value="" oninput="mayus(this); validarDni(); botonDisabled(); ponerCeros()" maxlength="9"/><span id="errdni"></span>
                 </p>
                 <p>
-    <label for="ccontacto">Métodos de contacto (mínimo 1, máximo 3):</label><br/><br/>
-    <input type="checkbox" name="contacto[]" value="email" id="contacto1" onclick="validarTiposContacto(); botonDisabled();"/>Email<br/>
-    <input type="checkbox" name="contacto[]" value="telefono" id="contacto2" onclick="validarTiposContacto(); botonDisabled();"/>Teléfono<br/>
-    <input type="checkbox" name="contacto[]" value="whatsapp" id="contacto3" onclick="validarTiposContacto(); botonDisabled();"/>WhatsApp<br/>
-    <input type="checkbox" name="contacto[]" value="sms" id="contacto4" onclick="validarTiposContacto(); botonDisabled();"/>SMS<br/>
-    <input type="checkbox" name="contacto[]" value="correo" id="contacto5" onclick="validarTiposContacto(); botonDisabled();"/>Correo Postal<br/>
-    <br/>
-    <span id="errorContacto" style="display: block; margin-top: 5px;"></span>
-</p>
-<div id="telefonoInput" style="display: none;">
-    <label for="telefono">Número de teléfono:</label>
-    <input type="text" id="telefono" name="telefono" value="" maxlength="9" onkeypress="return permitir(event, 'num')" oninput="validarTelefono(); botonDisabled();"/>
-    <span id="errtelefono"></span>
-</div>
+                  <label for="ccontacto">Métodos de contacto (mínimo 1, máximo 3):</label><br/><br/>
+<input type="checkbox" name="contacto[]" value="email" id="contacto1" onclick="validarTiposContacto(); botonDisabled();"/>Email<br/>
+<input type="checkbox" name="contacto[]" value="telefono" id="contacto2" onclick="validarTiposContacto(); botonDisabled();"/>Teléfono<br/>
+<input type="checkbox" name="contacto[]" value="whatsapp" id="contacto3" onclick="validarTiposContacto(); botonDisabled();"/>WhatsApp<br/>
+<input type="checkbox" name="contacto[]" value="sms" id="contacto4" onclick="validarTiposContacto(); botonDisabled();"/>SMS<br/>
+<input type="checkbox" name="contacto[]" value="correo" id="contacto5" onclick="validarTiposContacto(); botonDisabled();"/>Correo Postal<br/>
+<br/>
+<span id="errorContacto" style="display: block; margin-top: 5px;"></span>
                    
           <label>Mas información:</label><br/>
             <textarea id="observaciones" name="observaciones" cols="50" rows="5" onkeypress="return limita2(100)"></textarea><br/>
@@ -590,4 +530,5 @@ function botonDisabled() {
     </div>
 </body>
 </html>
+
 
