@@ -352,34 +352,9 @@
     mensajeError.innerHTML = "OK";
     mensajeError.style.color = "green";
     return true;
-     
-     if (document.getElementById("contacto2").checked) {
-        document.getElementById("telefono").style.display = "block";
-    } else {
-        document.getElementById("telefono").style.display = "none";
-    }
-
-    return true;
-}
 }
   
-function validarTelefono() {
-    var telefono = document.getElementById("telefono").value;
-    var salida = document.getElementById("errtelefono");
 
-    if (telefono.length == 0 || telefono == null || /^\s+$/.test(telefono)) {
-        salida.innerHTML = "Introduce un número de teléfono";
-        salida.style.display = 'inline';
-        salida.style.color = "red";
-    } else if (!(/^\d{9}$/.test(telefono))) {
-        salida.innerHTML = "El número de teléfono debe tener 9 dígitos";
-        salida.style.display = 'inline';
-        salida.style.color = "red";
-    } else {
-        salida.innerHTML = "OK";
-        salida.style.color = "green";
-    }
-}
         function limita2(maximoCaracteres) {
             var elemento = document.getElementById("observaciones");
             if (elemento.value.length >= maximoCaracteres) {
@@ -458,22 +433,17 @@ function validarTelefono() {
         }
       
 
-       function botonDisabled() {
+        function botonDisabled() {
     let nombreValido = document.getElementById("errnombre").innerHTML == "OK";
     let correoValido = document.getElementById("errcorreo").innerHTML == "OK";
     let dniValido = document.getElementById("errdni").innerHTML == "OK";
     let postalValido = document.getElementById("errpostal").innerHTML == "OK";
     let contactoValido = document.getElementById("errorContacto").innerHTML == "OK";
 
-    let telefonoValido = true;
-    if (document.getElementById("contacto2").checked) {
-        telefonoValido = document.getElementById("errtelefono").innerHTML == "OK";
-    }
-
-    if (nombreValido && correoValido && dniValido && postalValido && contactoValido && telefonoValido) {
-        document.getElementById("btnEnviar").disabled = false;
+    if (nombreValido && correoValido && dniValido && postalValido && contactoValido) {
+        document.getElementById("btnEnviar").disabled = false; 
     } else {
-        document.getElementById("btnEnviar").disabled = true;
+        document.getElementById("btnEnviar").disabled = true; 
     }
 }
 
