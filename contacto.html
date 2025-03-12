@@ -291,6 +291,38 @@
         }
 
 
+
+        function validarDni() {
+            var dni = document.getElementById("dni").value;
+            var salida = document.getElementById("errdni");
+            var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J',
+                'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+
+            if (!(/^\d{1,8}[A-Z]$/.test(dni))) {
+                salida.style.display = 'inline';
+                salida.innerHTML = "Formato DNI no válido, ejemplo de formato válido: 71236278G ";
+                salida.style.color = "red";
+            } else {
+                salida.innerHTML = "OK";
+                salida.style.color = "green";
+
+                if (dni.charAt(8).toUpperCase() != letras[(dni.substring(0, 8)) % 23]) {
+                    salida.style.display = 'inline';
+                    salida.innerHTML = "La letra del DNI no corresponde con el número indicado";
+                    salida.style.color = "red";
+                } else {
+                    salida.innerHTML = "OK";
+                    salida.style.color = "green";
+                }
+            }
+        }
+       
+  
+
+        function mayus(m) {
+            m.value = m.value.toUpperCase();  
+        }  
+
   function validarTiposContacto() {
     var cont = 0;
     var opciones = ["contacto1", "contacto2", "contacto3", "contacto4", "contacto5"];
@@ -304,7 +336,7 @@
 
     var mensajeError = document.getElementById("errorContacto");
     
-    if (cont < 3) {  
+    if (cont < 1) {  
         mensajeError.innerHTML = "Debes seleccionar al menos 1 tipo de contacto.";
         mensajeError.style.color = "red";
         return false;
@@ -467,7 +499,7 @@
                     <input type="text" id="dni" name="dni" value="" oninput="mayus(this); validarDni(); botonDisabled(); ponerCeros()" maxlength="9"/><span id="errdni"></span>
                 </p>
                 <p>
-                  <label for="ccontacto">Métodos de contacto (mínimo 1, máximo 3):</label><br/><br/>
+                  <label for="ccontacto">Métodos de contacto (mínimo 1):</label><br/><br/>
 <input type="checkbox" name="contacto[]" value="email" id="contacto1" onclick="comprobar_contactos(); botonDisabled();"/>Email<br/>
 <input type="checkbox" name="contacto[]" value="telefono" id="contacto2" onclick="comprobar_contactos(); botonDisabled();"/>Teléfono<br/>
 <input type="checkbox" name="contacto[]" value="whatsapp" id="contacto3" onclick="comprobar_contactos(); botonDisabled();"/>WhatsApp<br/>
