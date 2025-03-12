@@ -322,11 +322,13 @@
             m.value = m.value.toUpperCase();  
         }  
 
- function validarTiposContacto() {
+function validarTiposContacto() {
     var cont = 0;
     var opciones = ["contacto1", "contacto2", "contacto3", "contacto4", "contacto5"];
     var mensajeError = document.getElementById("errorContacto");
     var telefonoInput = document.getElementById("telefonoInput");
+
+    console.log("Inicio de validarTiposContacto()"); // Añade esta línea
 
     for (var i = 0; i < opciones.length; i++) {
         var checkbox = document.getElementById(opciones[i]);
@@ -335,21 +337,26 @@
         }
     }
 
+    console.log("Número de checkboxes seleccionados:", cont); 
+
     if (cont < 1) {
         mensajeError.innerHTML = "Debes seleccionar al menos 1 tipo de contacto.";
         mensajeError.style.color = "red";
         telefonoInput.style.display = "none";
+        console.log("Mensaje de error:", mensajeError.innerHTML); 
         return false;
     }
     if (cont > 3) {
         mensajeError.innerHTML = "Solo puedes seleccionar hasta 3 métodos de contacto.";
         mensajeError.style.color = "red";
-        event.target.checked = false; 
+        event.target.checked = false;
+        console.log("Mensaje de error:", mensajeError.innerHTML); 
         return false;
     }
 
     mensajeError.innerHTML = "OK";
     mensajeError.style.color = "green";
+    console.log("Mensaje de éxito:", mensajeError.innerHTML); 
 
     if (document.getElementById("contacto2").checked) {
         telefonoInput.style.display = "block";
@@ -357,6 +364,7 @@
         telefonoInput.style.display = "none";
     }
     validarTelefono();
+    console.log("Fin de validarTiposContacto()"); 
     return true;
 }
   
