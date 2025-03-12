@@ -434,21 +434,19 @@
         }
       
 
-        function botonDisabled() {
-            if (
-                document.getElementById("errnombre").innerHTML == "OK" &&
-                document.getElementById("errcorreo").innerHTML == "OK" &&
-                document.getElementById("errpassword").innerHTML == "OK" &&
-                document.getElementById("errvia").innerHTML == "OK" &&
-                document.getElementById("errpostal").innerHTML == "OK" &&
-                document.getElementById("errdni").innerHTML == "OK" &&
-                document.getElementById("errinteres").innerHTML == "OK"
-            ) {
-                document.getElementById("btnEnviar").disabled = false; 
-            } else {
-                document.getElementById("btnEnviar").disabled = true; 
-            }
-        }
+        ffunction botonDisabled() {
+    let nombreValido = document.getElementById("errnombre").innerHTML == "OK";
+    let correoValido = document.getElementById("errcorreo").innerHTML == "OK";
+    let dniValido = document.getElementById("errdni").innerHTML == "OK";
+    let postalValido = document.getElementById("errpostal").innerHTML == "OK";
+    let contactoValido = document.getElementById("errorContacto").innerHTML == "OK";
+
+    if (nombreValido && correoValido && dniValido && postalValido && contactoValido) {
+        document.getElementById("btnEnviar").disabled = false; 
+    } else {
+        document.getElementById("btnEnviar").disabled = true; 
+    }
+}
 
 
     </script>
