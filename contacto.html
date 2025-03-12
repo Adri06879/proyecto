@@ -3,10 +3,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-    <title>Perifericos</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="shortcut icon" href="img/raton_icon.png" type="image/ico" />
-    <link id="css_archivo" rel="stylesheet" href="css/estilo.css" />
+   <title>Contacto - Cafetería Delicia</title>
+    <link rel="icon" href="imagenes/favicon.png" type="image/png" />
 <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -270,54 +268,7 @@
 
         }
 
-        ///Comprobar password
-        function comprueba_password() {
-            var password = document.getElementById("password").value;
-            var salida = document.getElementById("errpassword");
-
-            if (password.length == 0 || password == null || /^\s+$/.test(password)) {
-                salida.innerHTML = "Has de rellenar la contraseña ";
-                salida.style.display = 'inline';
-                salida.style.color = "red";
-            } else if (/^[a-zA-Z0-9]{3,20}$/.test(password)) { // buscar patron para contraseña mas compleja
-                salida.innerHTML = "OK";
-                salida.style.color = "green";
-
-                ;
-                
-            } else {
-                salida.innerHTML = "Contraseña incorrecta, solo numeros y letras minimo 3 y maximo 20, ejemplo inves";
-                salida.style.display = 'inline';
-                salida.style.color = "red";
-            }
-
-        }
-
-        //direccion
-
-        function validar_direccion() {
-            var via = document.getElementById("via").value;
-            var errorDireccion = document.getElementById("errvia");
-
-            if (via.length == 0 || via == null || /^\s+$/.test(via)) {
-                errorDireccion.style.display = 'inline';
-                errorDireccion.innerHTML = "Obligatoria: Rellena la calle/avenida/paseo. Ejemplo Miguel Cervantes 33";
-                errorDireccion.style.color = "red";
-            } else if (/^[A-Z][a-z]{3,20}(\s[A-za-z0-9]{1,20})*$/.test(via)) {
-                errorDireccion.innerHTML = "OK";
-                errorDireccion.style.color = "green";
-
-            } else {
-                errorDireccion.style.display = 'inline';
-                errorDireccion.innerHTML = "Obligatorio: Comprueba la calle/avenida/paseo. Ejemplo Miguel Cervantes 33";
-                errorDireccion.style.color = "red";
-            }
-
-        }
-
-        //Comprobar Codigo Postal
-
-
+      
         function validarPostal() {
             var valor = document.getElementById("cp").value;
             var inner = document.getElementById("errpostal");
@@ -339,9 +290,6 @@
             }
         }
 
-        
-
-        //Comprobar DNI
 
         function validarDni() {
             var dni = document.getElementById("dni").value;
@@ -372,46 +320,34 @@
         //Letras en mayúsculas
 
         function mayus(m) {
-            m.value = m.value.toUpperCase();  //pasa a mayusculas el valor del elemento
+            m.value = m.value.toUpperCase();  
         }
 
-        //recomendacion
+        
 
-        function comprobar_intereses() {
-            var cont = 0;
-            var cuanto = document.getElementById("cinteres");
-            if (cuanto.checked) {   // si lo ha seleccionado
-                cont++;
-            }
-            var cuanto = document.getElementById("cinteres1");
-            if (cuanto.checked) {
-                cont++;
-            }
-            var cuanto = document.getElementById("cinteres2");
-            if (cuanto.checked) {
-                cont++;
-            }
-            var cuanto = document.getElementById("cinteres3");
-            if (cuanto.checked) {
-                cont++;
-            }
-            var cuanto = document.getElementById("cinteres4");
-            if (cuanto.checked) {
-                cont++;
-            }
-
-            if (cont < 3) {   // ha marcado menos de dos
-                var textspan = document.getElementById("errinteres");
-                textspan.innerHTML = "3 intereses minimo";
-                textspan.style.color = "red";
-                return false;
-            }
-            var textspan = document.getElementById("errinteres");
-            textspan.innerHTML = "OK";
-            textspan.style.color = "green";
-            return true;
+       function validarTiposContacto() {
+    var cont = 0;
+    var opciones = ["contacto1", "contacto2", "contacto3", "contacto4", "contacto5"];
+    
+    for (var i = 0; i < opciones.length; i++) {
+        var checkbox = document.getElementById(opciones[i]);
+        if (checkbox && checkbox.checked) {
+            cont++;
         }
+    }
 
+    var mensajeError = document.getElementById("errorContacto");
+    
+    if (cont < 3) {  
+        mensajeError.innerHTML = "Debes seleccionar al menos 3 tipos de contacto.";
+        mensajeError.style.color = "red";
+        return false;
+    } else {
+        mensajeError.innerHTML = "OK";
+        mensajeError.style.color = "green";
+        return true;
+    }
+}
   
 
         function limita2(maximoCaracteres) {
@@ -425,7 +361,7 @@
             }
         }
 
-        // Solo Letras
+ 
 
 
         function permitir(elevento, caracteres_permitidos) {
@@ -508,59 +444,32 @@
             }
         }
 
-        // Nuevas funciones para los botones de radio
-
- function verificar_conectividad(){
-	document.getElementById('conectividad').style.display = "block";
-	document.getElementById('resolucion').style.display = "none";
-    var cuanto = document.getElementById("cinteres");
-            if (cuanto.checked) {
-                cont++;
-            }
-    
-}
-
-function verificar_monitor(){
-	document.getElementById('conectividad').style.display = "none";
-	document.getElementById('resolucion').style.display = "block";
-}
-
-function verificar_teclado(){
-	document.getElementById('conectividad').style.display = "none";
-	document.getElementById('resolucion').style.display = "none";
-}
 
     </script>
 </head>
 
 <body>
 
-<div class="header">
-    <h1>Perifericos</h1>
+<div id="header">
+        <h1>Contacto</h1>
+        <p>Estamos aquí para ayudarte</p>
+    </div>
 
-</div>
+<nav id="nav">
+        <a href="index.html">Inicio</a>
+        <a href="menu.html">Menú</a>
+        <a href="sobre-nosotros.html">Sobre Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="reserva.html">Reservar</a>
+    </nav>
+<div class="content">
+        <h2>Contáctanos</h2>
+        <p>Para consultas, puedes comunicarte con nosotros:</p>
+        <p><strong>Dirección:</strong> Av. de los Estudiantes, 83, 13300 Valdepeñas, Ciudad Real</p>
+        <p><strong>Teléfono:</strong> +34 675 08 68 19</p>
+        <p><strong>Correo electrónico:</strong> <a href="mailto:cafeteriaydelicias@gmail.com">cafeteriaydelicias@gmail.com</a></p>
 
-<div class="topnav">
-    <a href="index.html">Inicio</a>
-    <a href="formulario.html">Formular Pedido</a>
-    <a href="precios.html">Precios</a>
-    <a href="ubicacion.html">Ubicacion</a>
-    <a href="./XML/XML_DTD/tienda_perifericos.xml">XML con DTD</a>
-    <a href="./XML/XML_XSD/tienda_perifericos.xml">XML con XSD</a>
-  
-    
-  </div>
-
-<div class="row">
-    <div class="leftcolumn">
-        <div class="card">
-            <h2>Formulario de Pedidos</h2>
-            <h5>Rellena los siguientes campos:</h5>
-            
-            
-            
-            
-            
+                
             <form id="formulario" action="recibe.php" method="post">
                 <p>
                     <label for="nombre">Nombre:</label>
@@ -572,17 +481,13 @@ function verificar_teclado(){
                     <input type="text" name="apellido" id="apellido" value="" oninput="comprueba_apellido(); botonDisabled();" />
                     <span id="errapellido"></span>
                 </p> 
-            -->
+        --->
                 <p>
                     <label for="correo">e-mail:</label>
                     <input type="text" id="correo" name="correo" value="" maxlength="30" oninput="comprueba_correo(); botonDisabled();"/>
                     <span id="errcorreo"></span>
                 </p>
-                <p>
-                    <label for="password">contraseña:</label>
-                    <input type="password" id="password" name="password" value="" maxlength="30" oninput="comprueba_password(); botonDisabled();"/>
-                    <span id="errpassword"></span>
-                </p>
+                
 
                 <p>
                     <label for="fecha">Fecha de nacimiento:</label>
@@ -611,39 +516,16 @@ function verificar_teclado(){
                     <input type="text" id="dni" name="dni" value="" oninput="mayus(this); validarDni(); botonDisabled(); ponerCeros()" maxlength="9"/><span id="errdni"></span>
                 </p>
                 <p>
-                    <label for="cinteres">Intereses (minimo 3):</label><br/><br/>
-                    <input type="checkbox" name="interes[]" value="amigos" id="cinteres" onclick="comprobar_intereses(); botonDisabled();"/>Amigos<br/>
-                    <input type="checkbox" name="interes[]" value="anuncios" id="cinteres1" onclick="comprobar_intereses(); botonDisabled();"/>Anuncios<br/>
-                    <input type="checkbox" name="interes[]" value="blog" id="cinteres2" onclick="comprobar_intereses(); botonDisabled();"/>Blog<br/>
-                    <input type="checkbox" name="interes[]" value="rrss" id="cinteres3" onclick="comprobar_intereses(); botonDisabled();"/>Redes sociales<br/>
-                    <input type="checkbox" name="interes[]" value="tv" id="cinteres4" onclick="comprobar_intereses(); botonDisabled();"/>Television<br/>
-                    <br/>
-                    <span id="errinteres"></span>
-                </p>
-                <p>
-                    <label>Que producto quieres :</label> <br/><br/>
-                    <input type="radio" name="producto" value="raton" id="raton" onclick="verificar_conectividad(); botonDisabled();"/> Raton <br/>
-                    <input type="radio" name="producto" value="teclado" id="teclado" onclick="verificar_teclado(); botonDisabled();" checked /> Teclado <br/>
-                    <input type="radio" name="producto" value="monitor" id="monitor" onclick="verificar_monitor(); botonDisabled();"/> Monitor
-                    <br/>
-                    
-                    <span id="errproducto"></span>
-                    <br/>
-                    <div id ="conectividad" style="display: none;">
-                        <label>conectividad :</label> <br/><br/>
-                        <input type="radio" name="conectividad" value="inalambrico" id="medio0" checked /> Inalambrico<br/>
-                        <input type="radio" name="conectividad" value="cable" id="medio1" /> Con cable 
-                        <span id="medio"></span><br/>
-                    </div>
-                    
-                    
-                    <div id ="resolucion" style="display: none;">
-                        <label>resolucion :</label> <br/><br/>
-                        <input type="radio" name="resolucion" value="hd" id="fullhd" checked /> Full HD <br/>
-                        <input type="radio" name="resolucion" value="2k" id="2k" /> 2K 
-                        <span id="superior"></span> <br/>
-                    </div>
+                   <label for="contacto1">Tipos de contacto (mínimo 3):</label><br/><br/>
+<input type="checkbox" name="contacto[]" value="email" id="contacto1" onclick="validarTiposContacto(); botonDisabled();"/>Correo electrónico<br/>
+<input type="checkbox" name="contacto[]" value="telefono" id="contacto2" onclick="validarTiposContacto(); botonDisabled();"/>Teléfono<br/>
+<input type="checkbox" name="contacto[]" value="whatsapp" id="contacto3" onclick="validarTiposContacto(); botonDisabled();"/>WhatsApp<br/>
+<input type="checkbox" name="contacto[]" value="sms" id="contacto4" onclick="validarTiposContacto(); botonDisabled();"/>SMS<br/>
+<input type="checkbox" name="contacto[]" value="correo" id="contacto5" onclick="validarTiposContacto(); botonDisabled();"/>Correo postal<br/>
+<br/>
+<span id="errorContacto" style="display: block; margin-top: 5px;"></span>
 
+                 
                     <p>
                         <label for="color">Selecciona el color del producto:</label>
                         <input type="color" id="color" name="color" value="#ff0000" />
