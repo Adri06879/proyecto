@@ -326,10 +326,10 @@
             <input type="text" id="postalCode" name="postalCode" required placeholder="Código Postal" pattern="^\d{5}$" title="Introduce un código postal válido (5 dígitos)." oninput="validarCodigoPostal()">
             <span id="errorPostalCode" style="display: none;"></span>
 
-            <label for="dni">DNI:</label>
-            <input type="text" id="dni" name="dni" required placeholder="DNI (8 dígitos)" maxlength="8" pattern="^\d{8}$" title="Introduce un DNI válido (8 dígitos).">
-            <span id="errorDNI" style="display: none;"></span>
-
+            <p>
+                    <label for="dni">DNI :</label>
+                    <input type="text" id="dni" name="dni" value="" oninput="mayus(this); validarDni(); botonDisabled(); ponerCeros()" maxlength="9"/><span id="errdni"></span>
+                </p>
             <fieldset class="checkbox-group">
                 <legend>Preferencias de Contacto:</legend>
                 <label><input type="checkbox" name="contact[]" value="email"> Correo electrónico</label>
