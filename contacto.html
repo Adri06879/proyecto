@@ -530,8 +530,9 @@ function validarTiposContacto() {
     </p>
 
     <p>
-        <label for="num_invitados">Número de invitados:</label>
-        <input type="number" id="num_invitados" name="num_invitados" min="1" max="500" oninput="botonDisabled();" />
+    <label for="invitados">Número de invitados:</label>
+    <input type="number" id="invitados" name="invitados" value="1" min="1" max="20" oninput="botonDisabled();" />
+    <span id="errinvitados"></span>
     </p>
 
     <p>
