@@ -450,8 +450,6 @@
 }
 
 function validarTiposContacto() {
-    // ... (resto del código de la función) ...
-
     if (document.getElementById("contacto2").checked) {
         telefonoInput.style.display = "block";
     } else {
@@ -501,60 +499,71 @@ function validarTiposContacto() {
         <p><strong>Correo electrónico:</strong> <a href="mailto:cafeteriaydelicias@gmail.com">cafeteriaydelicias@gmail.com</a></p>
 
                 
-            <form id="formulario" action="recibe.php" method="post">
-                <p>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" name="nombre" id="nombre" value="" oninput='comprueba_nombre(); botonDisabled();'/>
-                    <span id="errnombre"></span>
-                </p>
-               
-                <p>
-                    <label for="correo">e-mail:</label>
-                    <input type="text" id="correo" name="correo" value="" maxlength="30" oninput="comprueba_correo(); botonDisabled();"/>
-                    <span id="errcorreo"></span>
-                </p>
-                
+           <form id="formulario" action="recibe.php" method="post" enctype="multipart/form-data">
+    <p>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" value="" oninput='comprueba_nombre(); botonDisabled();'/>
+        <span id="errnombre"></span>
+    </p>
 
-                <p>
-                    <label for="fecha">Fecha de nacimiento:</label>
-                    <input type="date" id="fecha" name="fecha" oninput="comprueba_fecha(); requiered " />
-                    <span id="errfecha"></span>
-                </p>
+    <p>
+        <label for="correo">e-mail:</label>
+        <input type="text" id="correo" name="correo" value="" maxlength="30" oninput="comprueba_correo(); botonDisabled();"/>
+        <span id="errcorreo"></span>
+    </p>
 
-                <p>
-                    <label for="cp">Código Postal :</label>
-                    <input type="text" id="cp" name="codigo" value="" maxlength="5" onkeypress="return permitir(event, 'num')" oninput="validarPostal(); botonDisabled();"/>
-                    <span id="errpostal"></span>
-                </p>
-                <p>
-                    <label for="dni">DNI :</label>
-                    <input type="text" id="dni" name="dni" value="" oninput="mayus(this); validarDni(); botonDisabled(); ponerCeros()" maxlength="9"/><span id="errdni"></span>
-                </p>
-               <p>
-    <label for="ccontacto">Métodos de contacto (mínimo 1, teléfono obligatorio):</label><br/><br/>
-    <input type="checkbox" name="contacto[]" value="email" id="contacto1" onclick="validarTiposContacto(); botonDisabled();"/>Email<br/>
-    <input type="checkbox" name="contacto[]" value="telefono" id="contacto2" onclick="validarTiposContacto(); botonDisabled();"/>Teléfono<br/>
-    <input type="checkbox" name="contacto[]" value="whatsapp" id="contacto3" onclick="validarTiposContacto(); botonDisabled();"/>WhatsApp<br/>
-    <input type="checkbox" name="contacto[]" value="sms" id="contacto4" onclick="validarTiposContacto(); botonDisabled();"/>SMS<br/>
-    <input type="checkbox" name="contacto[]" value="correo" id="contacto5" onclick="validarTiposContacto(); botonDisabled();"/>Correo Postal<br/>
-    <br/>
-    <span id="errorContacto" style="display: block; margin-top: 5px;"></span>
-</p>
-<div id="telefonoInput" style="display: none;">
-    <label for="telefono">Número de teléfono:</label>
-    <input type="text" id="telefono" name="telefono" value="" maxlength="9" onkeypress="return permitir(event, 'num')" oninput="validarTelefono(); botonDisabled();"/>
-    <span id="errtelefono"></span>
-</div>
-          <p>      
-          <label>Mas información:</label><br/>
-            <textarea id="observaciones" name="observaciones" cols="50" rows="5" onkeypress="return limita2(100)"></textarea><br/>
-                    <span id="spancaracteres"></span>
-                </p>
-                <p>
-                    <button id="btnEnviar" name="btnEnviar" type="submit" disabled="disabled">Enviar</button>
-                    <input type="reset" name="borra" value="Borrar" onclick="window.location.reload()"/>
-                </p>
-            </form>
+    <p>
+        <label for="fecha">Fecha de nacimiento:</label>
+        <input type="date" id="fecha" name="fecha" oninput="comprueba_fecha(); requiered " />
+        <span id="errfecha"></span>
+    </p>
+
+    <p>
+        <label for="cp">Código Postal :</label>
+        <input type="text" id="cp" name="codigo" value="" maxlength="5" onkeypress="return permitir(event, 'num')" oninput="validarPostal(); botonDisabled();"/>
+        <span id="errpostal"></span>
+    </p>
+
+    <p>
+        <label for="dni">DNI :</label>
+        <input type="text" id="dni" name="dni" value="" oninput="mayus(this); validarDni(); botonDisabled(); ponerCeros()" maxlength="9"/><span id="errdni"></span>
+    </p>
+
+    <p>
+        <label for="num_invitados">Número de invitados:</label>
+        <input type="number" id="num_invitados" name="num_invitados" min="1" max="500" oninput="botonDisabled();" />
+    </p>
+
+    <p>
+        <label for="archivo">Adjuntar archivo:</label>
+        <input type="file" id="archivo" name="archivo" accept="image/*, .pdf" oninput="botonDisabled();" />
+    </p>
+
+    <p>
+        <label for="ccontacto">Métodos de contacto (mínimo 1, teléfono obligatorio):</label><br/><br/>
+        <input type="checkbox" name="contacto[]" value="email" id="contacto1" onclick="validarTiposContacto(); botonDisabled();"/>Email<br/>
+        <input type="checkbox" name="contacto[]" value="telefono" id="contacto2" onclick="validarTiposContacto(); botonDisabled();"/>Teléfono<br/>
+        <input type="checkbox" name="contacto[]" value="whatsapp" id="contacto3" onclick="validarTiposContacto(); botonDisabled();"/>WhatsApp<br/>
+        <input type="checkbox" name="contacto[]" value="sms" id="contacto4" onclick="validarTiposContacto(); botonDisabled();"/>SMS<br/>
+        <input type="checkbox" name="contacto[]" value="correo" id="contacto5" onclick="validarTiposContacto(); botonDisabled();"/>Correo Postal<br/>
+        <br/>
+        <span id="errorContacto" style="display: block; margin-top: 5px;"></span>
+    </p>
+    <div id="telefonoInput" style="display: none;">
+        <label for="telefono">Número de teléfono:</label>
+        <input type="text" id="telefono" name="telefono" value="" maxlength="9" onkeypress="return permitir(event, 'num')" oninput="validarTelefono(); botonDisabled();"/>
+        <span id="errtelefono"></span>
+    </div>
+    <p>      
+        <label>Más información:</label><br/>
+        <textarea id="observaciones" name="observaciones" oninput="limita2(500);" maxlength="500"></textarea><br/>
+        <span id="spancaracteres">Te quedan 500 caracteres</span>
+    </p>
+    <p>
+        <input type="submit" value="Enviar" id="btnEnviar" disabled />
+    </p>
+</form>
+
 
 
        </div>
