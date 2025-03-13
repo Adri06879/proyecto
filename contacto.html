@@ -459,12 +459,7 @@ function validarTiposContacto() {
     return true;
 }
        }
-document.getElementById('invitados').addEventListener('keydown', function(event) {
-      
-        if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown' && event.key !== 'Backspace' && event.key !== 'Tab') {
-            event.preventDefault();
-        }
-    }
+
         function botonDisabled() {
     let nombreValido = document.getElementById("errnombre").innerHTML == "OK";
     let correoValido = document.getElementById("errcorreo").innerHTML == "OK";
